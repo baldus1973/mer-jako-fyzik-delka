@@ -3,23 +3,23 @@ function placementText() {
   if (!placement.edgeContact) {
     const rulerBelow = placement.actualGapMm > scenario.targetGapMm;
     return rulerBelow
-      ? 'P\u0159isu\u0148 prav\u00edtko bl\u00ed\u017e k pastelce: posu\u0148 ho nahoru.'
-      : 'Prav\u00edtko je p\u0159\u00edli\u0161 vysoko. Posu\u0148 ho trochu dol\u016f k hran\u011b pastelky.';
+      ? 'P\u0159isu\u0148 prav\u00edtko bl\u00ed\u017e k p\u0159edm\u011btu: posu\u0148 ho nahoru.'
+      : 'Prav\u00edtko je p\u0159\u00edli\u0161 vysoko. Posu\u0148 ho trochu dol\u016f k hran\u011b p\u0159edm\u011btu.';
   }
   if (!placement.zeroAligned) {
     const rulerLeft = state.rulerX < state.objectX;
     return rulerLeft
-      ? 'Prav\u00edtko je u pastelky. Posu\u0148 jeho nulu doprava k lev\u00e9mu konci pastelky.'
-      : 'Prav\u00edtko je u pastelky. Posu\u0148 jeho nulu doleva k lev\u00e9mu konci pastelky.';
+      ? 'Prav\u00edtko je u p\u0159edm\u011btu. Posu\u0148 jeho nulu doprava k lev\u00e9mu konci.'
+      : 'Prav\u00edtko je u p\u0159edm\u011btu. Posu\u0148 jeho nulu doleva k lev\u00e9mu konci.';
   }
-  return 'Prav\u00edtko je spr\u00e1vn\u011b p\u0159ilo\u017een\u00e9: je u pastelky a nula je u jej\u00edho lev\u00e9ho konce.';
+  return 'Prav\u00edtko je spr\u00e1vn\u011b p\u0159ilo\u017een\u00e9: je u p\u0159edm\u011btu a nula je u jeho lev\u00e9ho konce.';
 }
 
 function updateAccessibleState() {
   const activeText = state.activeTarget === 'ruler'
     ? 'Aktivn\u00ed prvek je prav\u00edtko.'
     : state.activeTarget === 'object'
-      ? 'Aktivn\u00ed prvek je pastelka.'
+      ? `Aktivn\u00ed prvek je ${state.task.nameLower}.`
       : 'Nen\u00ed vybr\u00e1n \u017e\u00e1dn\u00fd prvek.';
   const guideColorName = GUIDE_COLOR_NAMES[state.guideColor] || GUIDE_COLOR_NAMES.red;
   const guidesText = state.guidesEnabled
@@ -104,4 +104,3 @@ function onMovableKeydown(target, event) {
   moveTarget(target, dx, dy);
   event.preventDefault();
 }
-
