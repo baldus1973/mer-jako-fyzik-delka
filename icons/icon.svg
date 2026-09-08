@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title">
+  <title id="title">Ikona aplikace Měř jako fyzik – Délka</title>
+  <rect width="512" height="512" rx="104" fill="#f7f8fb"/>
+  <rect x="66" y="188" width="380" height="136" rx="28" fill="#fff4c7" stroke="#252a33" stroke-width="12"/>
+  <g stroke="#252a33" stroke-width="8">
+    <path d="M96 188v56M136 188v34M176 188v34M216 188v56M256 188v34M296 188v34M336 188v56M376 188v34M416 188v34"/>
+  </g>
+  <path d="M118 132h220l58 32-58 32H118c-22 0-40-14-40-32s18-32 40-32Z" fill="#ff9d4d" stroke="#252a33" stroke-width="12"/>
+  <path d="M338 132l58 32-58 32Z" fill="#e8c39e" stroke="#252a33" stroke-width="12"/>
+  <path d="M380 155l16 9-16 9Z" fill="#252a33"/>
+</svg>
