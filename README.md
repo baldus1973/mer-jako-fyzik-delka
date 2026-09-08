@@ -21,6 +21,8 @@ Souřadnice scény jsou virtuální milimetry. Aplikace netvrdí, že 1 cm na di
 
 https://baldus1973.github.io/mer-jako-fyzik-delka/
 
+Publikace probíhá automaticky z větve `main` přes GitHub Pages.
+
 ## Soukromí a bezpečnost
 
 Aplikace nepotřebuje účet ani osobní údaje. Pokrok zůstává pouze v `localStorage` daného zařízení. Service worker má scope omezený na `/mer-jako-fyzik-delka/` a cache je verzovaná.
