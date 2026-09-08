@@ -1,4 +1,6 @@
 renderRulerScale();
+renderObject();
+renderTaskText();
 renderPositions();
 clearActiveTarget();
 renderZoom();
@@ -62,6 +64,7 @@ els.check.addEventListener('click', checkAnswer);
 els.answer.addEventListener('keydown', (event) => {
   if (event.key === 'Enter') checkAnswer();
 });
+els.nextTask.addEventListener('click', startNewTask);
 els.resetProgress.addEventListener('click', resetProgress);
 
 if ('serviceWorker' in navigator && location.protocol !== 'file:') {
