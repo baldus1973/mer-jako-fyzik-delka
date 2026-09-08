@@ -1,4 +1,34 @@
+function polishRulerScale() {
+  const labels = Array.from(els.rulerLabels.querySelectorAll('.ruler-label'));
+  labels.forEach((label) => {
+    const cm = Number(label.textContent);
+    if (!Number.isFinite(cm)) return;
+    if (cm === 0) {
+      label.setAttribute('x', '1.4');
+      label.setAttribute('text-anchor', 'start');
+      return;
+    }
+    label.setAttribute('x', String(cm * 10));
+    label.setAttribute('text-anchor', 'middle');
+  });
+
+  const ns = 'http://www.w3.org/2000/svg';
+  const endLabel = document.createElementNS(ns, 'text');
+  endLabel.setAttribute('x', '148.6');
+  endLabel.setAttribute('y', '23');
+  endLabel.setAttribute('text-anchor', 'end');
+  endLabel.setAttribute('class', 'ruler-label');
+  endLabel.textContent = '15';
+  els.rulerLabels.append(endLabel);
+
+  [els.guideStartLine, els.guideEndLine].forEach((line) => {
+    line.setAttribute('stroke-width', '0.45');
+    line.setAttribute('opacity', '0.68');
+  });
+}
+
 renderRulerScale();
+polishRulerScale();
 renderObject();
 renderTaskText();
 renderPositions();
