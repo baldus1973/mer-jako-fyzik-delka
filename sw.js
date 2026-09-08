@@ -1,7 +1,7 @@
-const VERSION='0.5.2';
+const VERSION='0.6.0';
 const CACHE_PREFIX='mer-jako-fyzik-delka-';
 const CACHE_NAME=`${CACHE_PREFIX}v${VERSION}`;
-const APP_SHELL=['./','./index.html','./styles.css','./physics.js','./app-1.js','./app-2a.js','./app-2b.js','./app-3.js','./app-4.js','./manifest.webmanifest','./icons/icon.svg','./icons/icon-192.png'];
+const APP_SHELL=['./','./index.html','./styles.css','./physics.js','./app.js','./manifest.webmanifest','./icons/icon.svg','./icons/icon-192.png'];
 function isInOwnScope(requestUrl){const scopeUrl=new URL(self.registration.scope);const url=new URL(requestUrl);return url.origin===scopeUrl.origin&&url.href.startsWith(scopeUrl.href)}
 self.addEventListener('install',event=>{event.waitUntil(caches.open(CACHE_NAME).then(cache=>cache.addAll(APP_SHELL)))});
 self.addEventListener('activate',event=>{event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key.startsWith(CACHE_PREFIX)&&key!==CACHE_NAME).map(key=>caches.delete(key)))).then(()=>self.clients.claim()))});
