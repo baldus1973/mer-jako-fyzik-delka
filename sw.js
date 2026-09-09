@@ -1,4 +1,4 @@
-const VERSION='0.5.2';
+const VERSION='0.6.1';
 const CACHE_PREFIX='mer-jako-fyzik-delka-';
 const CACHE_NAME=`${CACHE_PREFIX}v${VERSION}`;
 const APP_SHELL=['./','./index.html','./styles.css','./physics.js','./app-1.js','./app-2a.js','./app-2b.js','./app-3.js','./app-4.js','./manifest.webmanifest','./icons/icon.svg','./icons/icon-192.png'];

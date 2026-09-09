@@ -33,33 +33,37 @@ function recordResult(result) {
   showProgress();
 }
 
+function formatCentimetres(mm) {
+  return String(mm / 10).replace('.', ',');
+}
+
 function feedbackFor(result, rawValue, unit) {
   if (result.correct) {
     return {
       kind: 'success',
       title: 'Spr\u00e1vn\u011b zm\u011b\u0159eno.',
-      text: 'Pastelka m\u00e1 d\u00e9lku 84 mm, tedy 8,4 cm. Prav\u00edtko je p\u0159ilo\u017een\u00e9 k pastelce, nula je u jej\u00edho za\u010d\u00e1tku a v\u00fdsledek obsahuje jednotku.',
+      text: `${state.task.name} m\u00e1 d\u00e9lku ${scenario.objectLengthMm} mm, tedy ${formatCentimetres(scenario.objectLengthMm)} cm. Prav\u00edtko je p\u0159ilo\u017een\u00e9 k p\u0159edm\u011btu a nula je u jeho za\u010d\u00e1tku.`,
     };
   }
   if (result.code === 'placement.edge_contact') {
     return {
       kind: 'hint',
-      title: 'Nejd\u0159\u00edv prav\u00edtko opravdu p\u0159ilo\u017e k pastelce.',
-      text: 'Posu\u0148 prav\u00edtko nahoru nebo dol\u016f tak, aby jeho horn\u00ed hrana t\u011bsn\u011b sousedila se spodn\u00ed hranou pastelky. Potom srovnej nulu.',
+      title: 'Nejd\u0159\u00edv prav\u00edtko opravdu p\u0159ilo\u017e k p\u0159edm\u011btu.',
+      text: 'Posu\u0148 prav\u00edtko nahoru nebo dol\u016f tak, aby jeho horn\u00ed hrana t\u011bsn\u011b sousedila se spodn\u00ed hranou p\u0159edm\u011btu. Potom srovnej nulu.',
     };
   }
   if (result.code === 'placement.zero_alignment') {
     return {
       kind: 'hint',
       title: 'Te\u010f srovnej nulu prav\u00edtka.',
-      text: 'Prav\u00edtko u\u017e je u pastelky. Posu\u0148 ho doleva nebo doprava tak, aby zna\u010dka 0 byla u lev\u00e9ho konce pastelky.',
+      text: 'Prav\u00edtko u\u017e je u p\u0159edm\u011btu. Posu\u0148 ho doleva nebo doprava tak, aby zna\u010dka 0 byla u lev\u00e9ho konce p\u0159edm\u011btu.',
     };
   }
   if (result.code === 'answer.invalid') {
     return {
       kind: 'error',
       title: 'Chyb\u00ed \u010d\u00edseln\u00e1 hodnota.',
-      text: 'Zapi\u0161 \u010d\u00edslo, nap\u0159\u00edklad 8,4, a potom zvol jednotku.',
+      text: 'Zapi\u0161 \u010d\u00edslo a potom zvol jednotku.',
     };
   }
   if (result.code === 'unit.scale_factor') {
@@ -76,7 +80,7 @@ function feedbackFor(result, rawValue, unit) {
   return {
     kind: 'error',
     title: 'Zkus znovu ode\u010d\u00edst stupnici.',
-    text: `${value} ${unit} neodpov\u00edd\u00e1 d\u00e9lce pastelky. Nejmen\u0161\u00ed d\u00edlek prav\u00edtka je 1 mm.`,
+    text: `${value} ${unit} neodpov\u00edd\u00e1 d\u00e9lce p\u0159edm\u011btu. Nejmen\u0161\u00ed d\u00edlek prav\u00edtka je 1 mm.`,
   };
 }
 
@@ -101,6 +105,10 @@ function checkAnswer() {
   els.feedbackTitle.textContent = fb.title;
   els.feedbackText.textContent = fb.text;
   els.feedback.focus({ preventScroll: false });
+  if (result.correct) {
+    els.check.disabled = true;
+    els.nextTask.hidden = false;
+  }
 }
 
 function resetScene() {
@@ -112,7 +120,33 @@ function resetScene() {
   renderPositions();
   updatePlacementStatus();
   els.answer.value = '';
+  els.check.disabled = false;
+  els.nextTask.hidden = true;
   els.feedback.hidden = true;
+}
+
+function startNewTask() {
+  const previousId = state.task.id;
+  state.task = createTask(previousId);
+  state.taskNumber += 1;
+  applyTaskToScenario(state.task);
+  state.objectX = scenario.initialObjectX;
+  state.objectY = scenario.initialObjectY;
+  state.rulerX = scenario.initialRulerX;
+  state.rulerY = scenario.initialRulerY;
+  state.zoomPercent = 100;
+  state.zoomCenterX = scenario.worldWidthMm / 2;
+  state.zoomCenterY = scenario.worldHeightMm / 2;
+  clearActiveTarget();
+  els.answer.value = '';
+  els.check.disabled = false;
+  els.nextTask.hidden = true;
+  els.feedback.hidden = true;
+  renderObject();
+  renderTaskText();
+  renderPositions();
+  renderZoom();
+  updatePlacementStatus();
 }
 
 function resetProgress() {
@@ -136,4 +170,3 @@ function bindMovable(element, target) {
   element.addEventListener('keydown', (event) => onMovableKeydown(target, event));
   element.addEventListener('focus', () => setActiveTarget(target));
 }
-
