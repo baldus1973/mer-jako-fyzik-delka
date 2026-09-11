@@ -2,40 +2,63 @@
 
 ## Stav
 
-Implementovaný izolovaný prototyp. Není určen k merge do produkčního `main`, dokud neproběhne skutečný render/pixel audit.
+Izolovaný prototyp prošel modelovým, browserovým a pixelovým QA. Produkční `main` ani PWA se tímto PR nemění. Modul zůstává kandidátem pro Fyzika HUB; `HUB_COMPAT_QA` je stále neověřeno.
 
 ## Modelový důkaz
 
-Nezávislý sweep ověřil 2 592 kombinací v generovaném rozsahu:
+Nezávislý referenční sweep ověřil 2 976 generovaných stavů:
 
-- start 12–65 mm,
-- délka 25–72 mm při podmínce konec ≤ 145 mm,
-- správná odpověď v mm,
-- ekvivalentní správná odpověď v cm,
-- diagnostika chyby `reading.end_is_length`,
-- diagnostika chybně umístěné značky začátku.
+- start 12–73 mm,
+- délka 25–72 mm,
+- konec vždy ≤ 145 mm,
+- hraniční stav 73–145 mm je dosažitelný,
+- `length_mm = end_mm - start_mm`,
+- správná odpověď v mm i cm,
+- diagnostika `reading.end_is_length`,
+- diagnostika chybné značky začátku i konce.
 
-Výsledek: PASS.
+Výsledek: `REFERENCE_PASS = PASS`, `PHYSICS_QA = PASS`, `GEOMETRY_QA = PASS`.
 
-## Fyzikální invarianty
+Repozitář obsahuje regresní test `tests/game-offset-model.test.js`.
 
-- `length_mm = end_mm - start_mm`
-- 1 SVG jednotka na vodorovné ose = 1 virtuální mm
-- objekt, stupnice i značky používají stejnou souřadnou soustavu
-- generátor nikdy nevytváří start na nule
+## Browser / interakční QA
+
+Skutečný Chromium render byl spuštěn a zkontrolován pro:
+
+- desktop 1440×900,
+- mobil 390×844,
+- tabuli/projektor 1920×1080.
+
+Ověřeno:
+
+- bez JavaScript page errors,
+- bez horizontálního přetečení,
+- správná responzivita mobilu,
+- správné zobrazení celé stupnice 0–15 cm,
+- diagnostika chyby „konec = délka“,
+- správná odpověď a přechod na další úlohu,
+- klávesové šipky,
+- tlačítka po 1 mm,
+- skutečný pointer drag.
+
+### Nalezené a opravené failure modes
+
+1. **Mobilní layout byl smrštěn na desítky pixelů**, protože modul přepsal globální breakpoint. Oprava: vlastní `@media(max-width:820px){.game-layout{grid-template-columns:1fr}}`.
+2. **Průhledná SVG čára nebyla spolehlivě hit-testovatelná.** Oprava: samostatný obdélníkový hitbox 16 SVG jednotek široký s téměř nulovou neprůhledností.
+3. **Hraniční stav 145 mm nebyl generátorem dosažitelný.** Oprava: rozsah startu rozšířen na 12–73 mm a přidán regresní test.
+4. **Číselné popisky stupnice byly na mobilu zbytečně drobné.** Oprava: mírně zvětšená velikost popisků bez změny geometrie stupnice.
+
+Výsledek: `VISUAL_QA = PASS`, `INTERACTION_QA = PASS`, `ACCESSIBILITY_QA = PASS`, `TECHNICAL_QA = PASS` pro izolovaný prototyp.
 
 ## Přístupnost
 
-Implementováno:
-
-- drag/pointer,
+- pointer/drag,
 - klávesové šipky,
 - samostatná tlačítka ±1 mm,
-- rozšířená neviditelná dotyková plocha značek,
+- široká hit-area značek,
 - bez časového limitu,
-- význam není sdělován pouze barvou.
-
-Stav: vyžaduje praktický smoke test na dotykovém zařízení.
+- význam není sdělován pouze barvou,
+- mobilní layout má jednu čitelnou hlavní kolonu.
 
 ## Soukromí a práva
 
@@ -44,12 +67,8 @@ Stav: vyžaduje praktický smoke test na dotykovém zařízení.
 - lokální ukládání pouze jednoduchého průběhu dovednosti,
 - vlastní HTML/CSS/SVG/JS.
 
-## Zbývající blokátory
+## Zbývající blokátor
 
-1. Skutečný pixel audit desktop.
-2. Skutečný pixel audit mobil/tablet.
-3. Skutečný pixel audit tabule/velká obrazovka.
-4. Praktický test pointer/keyboard/button interakce v prohlížeči.
-5. HUB_COMPAT_QA po určení cílového repozitáře/hostitele Fyzika HUB.
+`HUB_COMPAT_QA = UNVERIFIED` – není ještě doloženo začlenění do cílového repozitáře/hostitele Fyzika HUB a jeho sdílené navigace, výsledků a deep-link architektury.
 
-Dokud tyto body nejsou doložené, `VISUAL_QA`, `TECHNICAL_QA`, `HUB_COMPAT_QA` a celkové `GAME_QA` zůstávají `UNVERIFIED`.
+Dokud tento bod není doložený, celkové `GAME_QA` a `HUB_READY` zůstávají neuzavřené a PR zůstává draft.
