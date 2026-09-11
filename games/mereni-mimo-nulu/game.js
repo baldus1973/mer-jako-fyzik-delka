@@ -41,7 +41,7 @@
   }
 
   function createTask() {
-    const startMm = randomIntInclusive(12, 65);
+    const startMm = randomIntInclusive(12, 73);
     const maxLength = Math.min(72, 145 - startMm);
     const lengthMm = randomIntInclusive(25, maxLength);
     return Object.freeze({
