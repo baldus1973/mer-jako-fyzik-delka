@@ -1,0 +1,99 @@
+{
+  "project_id": "FYZIKA",
+  "schema_version": "1.0",
+  "package_id": "FY-06-mereni-delky-01-zakladni",
+  "title": "Měřicí mise – Nula není začátek",
+  "grade": 6,
+  "class": null,
+  "topic": "Měření délky",
+  "lesson": "Měření délky mimo nulovou značku",
+  "target_level": "ZÁKLADNÍ",
+  "learning_outcomes": [
+    "Změří danou délku délkovým měřidlem a zapíše výsledek.",
+    "Určí délku jako rozdíl odečtu na konci a odečtu na začátku, pokud předmět nezačíná na nule stupnice.",
+    "Vyjádří výsledek měření číselnou hodnotou a jednotkou."
+  ],
+  "status": "HANDOFF_BLOCKED",
+  "app_version": "0.1.0",
+  "content_revision": "1",
+  "design_revision": "1",
+  "sync_status": "NEOVĚŘENO",
+  "rights_status": "PASS",
+  "publication_approved": false,
+  "source_repo": "baldus1973/mer-jako-fyzik-delka",
+  "source_branch": "feature/hra-mereni-mimo-nulu",
+  "source_pr": 6,
+  "development_platform": "GitHub",
+  "production_url": null,
+  "presentation_url": null,
+  "notebook_notes_url": null,
+  "qr_target": null,
+  "proposed_hub_route": "/6/mereni-delky?activity=mereni-mimo-nulu&mode=student&uroven=zakladni",
+  "hub_contract": {
+    "module_kind": "GAME",
+    "game_id": "FY-06-HRA-01",
+    "student_mode": true,
+    "board_mode": true,
+    "offline_fallback": "Skutečné pravítko, proužek papíru položený mimo nulu, dvě značky a výpočet konec − začátek.",
+    "shared_hub_services_required": [
+      "navigation",
+      "deep_link",
+      "results_contract",
+      "accessibility_shell"
+    ],
+    "result_payload": {
+      "skill_id": "MEASURE_LENGTH_OFFSET",
+      "mastery_evidence": [
+        "marker_start_correct",
+        "marker_end_correct",
+        "length_difference_correct",
+        "unit_notation_correct",
+        "first_try_correct"
+      ],
+      "misconception_tags": [
+        "END_IS_LENGTH",
+        "WRONG_START_MARKER",
+        "WRONG_END_MARKER",
+        "UNIT_SCALE_FACTOR"
+      ],
+      "personal_data": false
+    }
+  },
+  "assets": [
+    {
+      "asset_id": "FY06-MD01-GAME",
+      "asset_type": "GAME",
+      "title": "Měřicí mise – Nula není začátek",
+      "source_url": "games/mereni-mimo-nulu/",
+      "version": "0.1.0",
+      "status": "TEACHING_READY",
+      "rights_status": "PASS",
+      "sync_status": "NEOVĚŘENO"
+    },
+    {
+      "asset_id": "FY06-MD01-BOARD",
+      "asset_type": "BOARD_MODE",
+      "title": "Tabule / TV – Měření mimo nulu",
+      "source_url": "games/mereni-mimo-nulu/",
+      "version": "0.1.0",
+      "status": "TEACHING_READY",
+      "rights_status": "PASS",
+      "sync_status": "NEOVĚŘENO"
+    }
+  ],
+  "qa": {
+    "PHYSICS_QA": "PASS",
+    "CURRICULUM_QA": "PASS",
+    "LEARNING_QA": "PASS",
+    "MECHANIC_QA": "PASS",
+    "FEEDBACK_QA": "PASS",
+    "ACCESSIBILITY_QA": "PASS",
+    "SAFETY_PRIVACY_QA": "PASS",
+    "RIGHTS_QA": "PASS",
+    "VISUAL_QA": "PASS",
+    "TECHNICAL_QA": "PASS",
+    "HUB_COMPAT_QA": "UNVERIFIED"
+  },
+  "blocking_reason": "Cílový repozitář/zdroj pravdy Fyzika HUB není v aktuálně připojeném GitHubu dostupný, takže nelze doložit skutečnou integraci navigace, výsledkového kontraktu a deep-linku.",
+  "last_sync": "2026-09-12"
+}
