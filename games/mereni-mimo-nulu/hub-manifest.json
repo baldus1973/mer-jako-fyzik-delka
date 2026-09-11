@@ -28,7 +28,23 @@
   "presentation_url": null,
   "notebook_notes_url": null,
   "qr_target": null,
-  "proposed_hub_route": "/6/mereni-delky?activity=mereni-mimo-nulu&mode=student&uroven=zakladni",
+  "hub_target": {
+    "platform": "Macaly",
+    "development_url": "https://h1nqpirqd5aiczq6wn57i9ww.macaly.dev/6/delka",
+    "existing_route": "/6/delka",
+    "documented_level_route": "/6/delka?uroven=zakladni",
+    "route_evidence": "Projektové prezentace FY-06-DELKA-01 na Google Drive",
+    "route_live_smoke_test": "UNVERIFIED",
+    "source_access": "UNVERIFIED"
+  },
+  "requested_hub_integration": {
+    "activity_id": "FY-06-HRA-01",
+    "activity_slug": "mereni-mimo-nulu",
+    "parent_route": "/6/delka",
+    "deep_link_parameter": null,
+    "deep_link_status": "UNVERIFIED",
+    "rule": "Nevytvářet paralelní trasu /6/mereni-delky. Aktivitu začlenit do existujícího modulu /6/delka a konkrétní deep-link parametr určit až podle skutečného HUB routeru."
+  },
   "hub_contract": {
     "module_kind": "GAME",
     "game_id": "FY-06-HRA-01",
@@ -94,6 +110,6 @@
     "TECHNICAL_QA": "PASS",
     "HUB_COMPAT_QA": "UNVERIFIED"
   },
-  "blocking_reason": "Cílový repozitář/zdroj pravdy Fyzika HUB není v aktuálně připojeném GitHubu dostupný, takže nelze doložit skutečnou integraci navigace, výsledkového kontraktu a deep-linku.",
+  "blocking_reason": "Existující HUB cílová trasa /6/delka je doložena projektovými prezentacemi, ale zdrojový Macaly projekt ani jeho router nejsou v tomto běhu dostupné přes připojený source-of-truth nástroj. Nelze proto bezpečně implementovat ani ověřit aktivitu, výsledkový kontrakt a konkrétní deep-link parametr.",
   "last_sync": "2026-09-12"
 }
