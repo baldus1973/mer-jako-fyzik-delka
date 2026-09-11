@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#f7f8fb">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self';script-src 'self';style-src 'self';img-src 'self' data:;connect-src 'self';object-src 'none';base-uri 'none';form-action 'none'">
+  <title>Měřicí mise – Nula není začátek</title>
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="./module.css">
+  <script src="../../physics.js" defer></script>
+  <script src="./game.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#mission">Přejít na úlohu</a>
+  <header class="site-header">
+    <div>
+      <p class="eyebrow">Fyzika · 6. ročník · FY-06-HRA-01</p>
+      <h1>Měřicí mise <span>– Nula není začátek</span></h1>
+      <p class="lead">Najdi začátek a konec předmětu na stupnici. Potom urči jeho skutečnou délku.</p>
+    </div>
+    <div class="header-meta"><span class="pill">Herní prototyp</span><span>v0.1.0</span></div>
+  </header>
+
+  <main id="mission" class="layout game-layout">
+    <section class="card task-card" aria-labelledby="task-title">
+      <div class="task-heading">
+        <div>
+          <p class="step" id="mission-step">Mise 1 · Měření mimo nulu</p>
+          <h2 id="task-title">Změř délku předmětu.</h2>
+        </div>
+        <div class="skill-chip">nejmenší dílek 1 mm</div>
+      </div>
+
+      <details class="instruction-panel">
+        <summary><span>Návod</span><span class="summary-hint">Klikni pro otevření</span></summary>
+        <div class="instruction-body">
+          <ol>
+            <li>Označ na stupnici místo, kde předmět začíná.</li>
+            <li>Označ místo, kde končí.</li>
+            <li>Délku zjisti jako rozdíl: konec − začátek.</li>
+            <li>Zapiš hodnotu a jednotku.</li>
+          </ol>
+          <p><strong>Pozor:</strong> číslo u pravého konce není automaticky délka předmětu.</p>
+        </div>
+      </details>
+
+      <div class="scene-wrap offset-scene-wrap">
+        <svg id="offset-scene" class="scene offset-scene" viewBox="0 0 180 92" role="img" aria-labelledby="scene-title scene-desc">
+          <title id="scene-title">Měření předmětu na pravítku mimo nulovou značku</title>
+          <desc id="scene-desc">Předmět leží nad pravítkem a nezačíná na nule. Dvě značky lze posouvat po stupnici.</desc>
+          <rect x="15" y="16" width="150" height="18" rx="5" class="game-object" id="game-object"/>
+          <g id="ruler" transform="translate(15 45)">
+            <rect x="0" y="0" width="150" height="28" rx="3" class="ruler-body"/>
+            <g id="ruler-ticks"></g>
+            <g id="ruler-labels"></g>
+          </g>
+          <g id="markers">
+            <g id="start-marker" class="measure-marker" tabindex="0" role="slider" aria-label="Značka začátku" aria-valuemin="0" aria-valuemax="150">
+              <line x1="0" y1="10" x2="0" y2="77" class="marker-line"/>
+              <circle cx="0" cy="10" r="4.2" class="marker-handle"/>
+            </g>
+            <g id="end-marker" class="measure-marker" tabindex="0" role="slider" aria-label="Značka konce" aria-valuemin="0" aria-valuemax="150">
+              <line x1="0" y1="10" x2="0" y2="77" class="marker-line"/>
+              <circle cx="0" cy="10" r="4.2" class="marker-handle"/>
+            </g>
+          </g>
+        </svg>
+      </div>
+
+      <div class="marker-panel" aria-label="Přesné posouvání značek">
+        <div class="marker-row">
+          <strong>Začátek</strong>
+          <button type="button" class="secondary marker-nudge" data-target="start" data-delta="-1">← 1 mm</button>
+          <output id="start-output">0 mm</output>
+          <button type="button" class="secondary marker-nudge" data-target="start" data-delta="1">1 mm →</button>
+        </div>
+        <div class="marker-row">
+          <strong>Konec</strong>
+          <button type="button" class="secondary marker-nudge" data-target="end" data-delta="-1">← 1 mm</button>
+          <output id="end-output">0 mm</output>
+          <button type="button" class="secondary marker-nudge" data-target="end" data-delta="1">1 mm →</button>
+        </div>
+      </div>
+      <p class="help">Značky můžeš posouvat myší/prstem, šipkami na klávesnici nebo tlačítky po 1 mm.</p>
+    </section>
+
+    <aside class="card answer-card" aria-labelledby="answer-title">
+      <p class="step">Tvůj výsledek</p>
+      <h2 id="answer-title">Jaká je délka předmětu?</h2>
+      <div class="answer-row">
+        <label for="answer-value">Délka</label>
+        <div class="answer-inputs">
+          <input id="answer-value" type="text" inputmode="decimal" autocomplete="off" spellcheck="false" placeholder="např. 5,5">
+          <select id="answer-unit" aria-label="Jednotka délky">
+            <option value="cm">cm</option>
+            <option value="mm">mm</option>
+          </select>
+        </div>
+      </div>
+      <button id="check-answer" class="primary" type="button">Zkontrolovat</button>
+      <div id="feedback" class="feedback" tabindex="-1" aria-live="assertive" hidden>
+        <strong id="feedback-title"></strong>
+        <p id="feedback-text"></p>
+      </div>
+      <button id="next-task" class="secondary next-task" type="button" hidden>Další měření</button>
+      <div class="progress-box">
+        <h3>Dovednost</h3>
+        <p id="mastery-status">Měření mimo nulu: zatím neověřeno</p>
+        <p class="privacy-note">Pokrok zůstává jen v tomto zařízení. Bez jména, účtu a online žebříčku.</p>
+      </div>
+    </aside>
+  </main>
+
+  <footer><p>HUB MODULE CANDIDATE · FY-06-HRA-01 · vlastní výukový obsah projektu Fyzika.</p></footer>
+</body>
+</html>
