@@ -1,7 +1,7 @@
 {
   "project_id": "FYZIKA",
   "visual_id": "FY-06-HRA-01-V01",
-  "visual_revision": "1.0",
+  "visual_revision": "1.1",
   "grade": 6,
   "lesson_id": "HRA-01",
   "topic": "Měření délky mimo nulovou značku",
@@ -52,7 +52,7 @@
   "state_matrix": [
     {"id": "minimum-start", "description": "start = 12 mm, délka = 25 mm"},
     {"id": "representative", "description": "start = 34 mm, konec = 91 mm"},
-    {"id": "near-max-end", "description": "konec = 145 mm"},
+    {"id": "near-max-end", "description": "start = 73 mm, konec = 145 mm"},
     {"id": "wrong-end-as-length", "description": "značky správně, odpověď = odečet konce"},
     {"id": "mobile-nudge", "description": "ovládání obou značek pouze tlačítky po 1 mm"}
   ],
@@ -72,7 +72,8 @@
   },
   "known_failure_modes": [
     "Dotykový úchyt značky je příliš úzký.",
-    "Responzivní změna deformuje stupnici.",
+    "Průhledná SVG čára nemusí být spolehlivě hit-testovatelná; používá se proto samostatný obdélníkový hitbox.",
+    "Responzivní změna deformuje stupnici nebo stlačí dvousloupcový layout na mobilu.",
     "Značka vizuálně nesedí na stejnou x souřadnici jako odpovídající dílek.",
     "Číselné značky 0 nebo 15 se oříznou na kraji pravítka."
   ],
@@ -81,18 +82,19 @@
     "Každá značka se pohybuje po celých milimetrech a její x poloha odpovídá stejnému modelu jako dílky pravítka.",
     "Odpověď rovná odečtu konce je při start_mm > 0 diagnostikována jako END_IS_LENGTH.",
     "Na desktopu, mobilu a tabuli není stupnice oříznuta ani deformována.",
-    "Dotykové ovládání má neviditelnou širokou hit-area a současně existují tlačítka i klávesnice."
+    "Na šířce 390 px má hlavní úloha plnou dostupnou šířku a pravý panel je pod ní, nikoli vedle ní.",
+    "Pointer drag, klávesové šipky i tlačítka po 1 mm skutečně mění příslušnou značku."
   ],
   "qa": {
     "PHYSICS_QA": "PASS",
     "TEXT_VISUAL_SYNC": "PASS",
     "GEOMETRY_QA": "PASS",
-    "INTERACTION_QA": "NEOVĚŘENO",
+    "INTERACTION_QA": "PASS",
     "ANIMATION_QA": "PASS",
-    "LEGIBILITY_QA": "NEOVĚŘENO",
-    "ACCESSIBILITY_QA": "NEOVĚŘENO",
+    "LEGIBILITY_QA": "PASS",
+    "ACCESSIBILITY_QA": "PASS",
     "OUTPUT_SYNC_QA": "PASS",
     "PROVENANCE_QA": "PASS",
-    "VISUAL_QA": "NEOVĚŘENO"
+    "VISUAL_QA": "PASS"
   }
 }
