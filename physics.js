@@ -112,6 +112,55 @@
     };
   }
 
+  function evaluateOffsetMeasurement({
+    startMm,
+    endMm,
+    markerStartMm,
+    markerEndMm,
+    answerValue,
+    answerUnit,
+    markerToleranceMm = 0.51,
+    answerToleranceMm = 0.51,
+  }) {
+    const expectedMm = lengthFromEndpoints(startMm, endMm);
+    const answerMm = toMillimetres(answerValue, answerUnit);
+    const startCorrect = Number.isFinite(markerStartMm)
+      && Math.abs(markerStartMm - startMm) <= markerToleranceMm;
+    const endCorrect = Number.isFinite(markerEndMm)
+      && Math.abs(markerEndMm - endMm) <= markerToleranceMm;
+    const answerValid = Number.isFinite(answerMm);
+    const answerCorrect = answerValid
+      && Number.isFinite(expectedMm)
+      && Math.abs(answerMm - expectedMm) <= answerToleranceMm;
+
+    let code = 'correct';
+    if (!Number.isFinite(expectedMm)) code = 'task.invalid';
+    else if (!startCorrect && !endCorrect) code = 'marker.both';
+    else if (!startCorrect) code = 'marker.start';
+    else if (!endCorrect) code = 'marker.end';
+    else if (!answerValid) code = 'answer.invalid';
+    else if (!answerCorrect) {
+      const endpointMistake = startMm > 0 && Math.abs(answerMm - endMm) <= answerToleranceMm;
+      const tenfold = Math.abs(answerMm - expectedMm * 10) <= answerToleranceMm;
+      const tenth = Math.abs(answerMm * 10 - expectedMm) <= answerToleranceMm;
+      if (endpointMistake) code = 'reading.end_is_length';
+      else code = tenfold || tenth ? 'unit.scale_factor' : 'reading.value';
+    }
+
+    return {
+      correct: Number.isFinite(expectedMm) && startCorrect && endCorrect && answerCorrect,
+      code,
+      expectedMm,
+      answerMm,
+      startCorrect,
+      endCorrect,
+      markerStartMm,
+      markerEndMm,
+      startErrorMm: Number.isFinite(markerStartMm) ? markerStartMm - startMm : NaN,
+      endErrorMm: Number.isFinite(markerEndMm) ? markerEndMm - endMm : NaN,
+    };
+  }
+
   globalThis.PhysicsLength = Object.freeze({
     MM_PER_CM,
     MM_PER_M,
@@ -120,5 +169,6 @@
     lengthFromEndpoints,
     evaluatePlacement,
     evaluateMeasurement,
+    evaluateOffsetMeasurement,
   });
 })();

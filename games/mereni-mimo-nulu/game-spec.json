@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0",
+  "game_id": "FY-06-HRA-01",
+  "title": "Měřicí mise – Nula není začátek",
+  "grade": 6,
+  "class_context": null,
+  "topic": "Měření délky pevného tělesa",
+  "primary_learning_goal": "Určit délku předmětu jako rozdíl odečtu na konci a na začátku, pokud předmět nezačíná na nule stupnice.",
+  "target_outcomes": [
+    "Změří danou délku délkovým měřidlem a zapíše výsledek.",
+    "Vyjádří výsledek měření číselnou hodnotou a jednotkou."
+  ],
+  "target_levels": ["REDUCED", "BASIC", "EXCELLENT"],
+  "prerequisites": ["Rozpozná milimetr a centimetr na pravítku.", "Umí odečíst hodnotu na stupnici po 1 mm."],
+  "real_world_context": "Měření předmětu na pravítku, jehož nulová značka není pod levým okrajem předmětu.",
+  "game_justification": "Interaktivní značky nutí žáka fyzicky identifikovat oba odečty a hra může diagnostikovat záměnu pravého odečtu za délku.",
+  "primary_mechanic": "diagnose-and-measure",
+  "secondary_mechanics": ["changed-context retry"],
+  "players": "individual_or_pair",
+  "session_length_min": 8,
+  "content_mix": {"current_topic_percent": 100, "review_percent": 0},
+  "learning_loop": ["context", "physics_action", "observation_or_result", "explanatory_feedback", "changed_context_retry", "debrief"],
+  "mastery_evidence": [
+    "marker_start_correct",
+    "marker_end_correct",
+    "length_difference_correct",
+    "unit_notation_correct",
+    "first_try_correct"
+  ],
+  "misconception_tags": ["END_IS_LENGTH", "WRONG_START_MARKER", "WRONG_END_MARKER", "UNIT_SCALE_FACTOR"],
+  "feedback_rules": [
+    "Při END_IS_LENGTH vysvětlit, že délka = konec − začátek.",
+    "Při chybné značce neprozradit celé řešení, ale nasměrovat žáka na odpovídající hranu předmětu.",
+    "Po správném řešení ukázat oba odečty i jejich rozdíl."
+  ],
+  "adaptive_retry": {"enabled": true, "rule": "Po dokončení nabídnout novou úlohu s jiným začátkem a délkou; evidovat první pokus lokálně."},
+  "scoring": {"enabled": false, "mastery_independent_from_points": true, "speed_required": false},
+  "differentiation": {
+    "reduced": "Bez časového limitu; ovládání po 1 mm tlačítky; nápověda se čtyřmi kroky; stejné fyzikální pravidlo.",
+    "basic": "Samostatně označit oba odečty, vypočítat rozdíl a uvést jednotku.",
+    "excellent": "Navazující transfer má používat poškozenou či nulou nezačínající část stupnice a zdůvodnění postupu."
+  },
+  "accessibility": {
+    "drag_drop_alternative": true,
+    "keyboard_or_button_path": true,
+    "color_not_only_signal": true,
+    "reduced_motion": true,
+    "mandatory_time_pressure": false,
+    "no_tech_fallback": "Skutečné pravítko, proužek papíru položený mimo nulu, dvě tužkové značky a výpočet konec − začátek."
+  },
+  "privacy": {"account_required": false, "real_name_required": false, "leaderboard": "none"},
+  "dependencies": {
+    "visual_qa_required": true,
+    "technical_qa_required": true,
+    "hub_compat_qa_required": true,
+    "external_source_review_required": false
+  },
+  "qa_evidence": {
+    "PHYSICS_QA": "PASS",
+    "CURRICULUM_QA": "PASS",
+    "LEARNING_QA": "PASS",
+    "MECHANIC_QA": "PASS",
+    "FEEDBACK_QA": "PASS",
+    "ACCESSIBILITY_QA": "PASS",
+    "SAFETY_PRIVACY_QA": "PASS",
+    "RIGHTS_QA": "PASS",
+    "VISUAL_QA": "PASS",
+    "TECHNICAL_QA": "PASS",
+    "HUB_COMPAT_QA": "UNVERIFIED"
+  },
+  "state": "IMPLEMENTED_PROTOTYPE_QA_PASS"
+}

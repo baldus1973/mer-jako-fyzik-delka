@@ -1,0 +1,124 @@
+{
+  "project_id": "FYZIKA",
+  "schema_version": "1.0",
+  "package_id": "FY-06-mereni-delky-01-zakladni",
+  "title": "Měřicí mise – Nula není začátek",
+  "grade": 6,
+  "class": null,
+  "topic": "Měření délky",
+  "lesson": "Měření délky mimo nulovou značku",
+  "target_level": "ZÁKLADNÍ",
+  "learning_outcomes": [
+    "Změří danou délku délkovým měřidlem a zapíše výsledek.",
+    "Určí délku jako rozdíl odečtu na konci a odečtu na začátku, pokud předmět nezačíná na nule stupnice.",
+    "Vyjádří výsledek měření číselnou hodnotou a jednotkou."
+  ],
+  "status": "HANDOFF_BLOCKED",
+  "app_version": "0.1.0",
+  "content_revision": "1",
+  "design_revision": "1",
+  "sync_status": "NEOVĚŘENO",
+  "rights_status": "PASS",
+  "publication_approved": false,
+  "source_repo": "baldus1973/mer-jako-fyzik-delka",
+  "source_branch": "feature/hra-mereni-mimo-nulu",
+  "source_pr": 6,
+  "development_platform": "GitHub + Macaly",
+  "production_url": null,
+  "presentation_url": null,
+  "notebook_notes_url": null,
+  "qr_target": null,
+  "hub_target": {
+    "platform": "Macaly",
+    "project_chat_id": "h1nqpirqd5aiczq6wn57i9ww",
+    "development_url": "https://h1nqpirqd5aiczq6wn57i9ww.macaly.dev/6/delka",
+    "existing_route": "/6/delka",
+    "documented_level_route": "/6/delka?uroven=zakladni",
+    "route_evidence": "Projektové prezentace FY-06-DELKA-01 na Google Drive + zdroj src/routes/6.delka.tsx v Macaly",
+    "source_access": "PASS_MACALY",
+    "preview_build": "PASS",
+    "sandbox_browser_smoke_test": "PASS",
+    "external_preview_pixel_audit": "PENDING"
+  },
+  "requested_hub_integration": {
+    "activity_id": "FY-06-HRA-01",
+    "activity_slug": "mereni-mimo-nulu",
+    "parent_route": "/6/delka",
+    "deep_link_parameter": "activity=mereni-mimo-nulu",
+    "student_deep_link": "/6/delka?activity=mereni-mimo-nulu&mode=student&seed=60101",
+    "board_deep_link": "/6/delka?activity=mereni-mimo-nulu&mode=board&seed=60101",
+    "deep_link_status": "PASS_SANDBOX",
+    "rule": "Nevytvářet paralelní trasu /6/mereni-delky. Aktivita je začleněna do existujícího modulu /6/delka."
+  },
+  "hub_contract": {
+    "module_kind": "GAME",
+    "game_id": "FY-06-HRA-01",
+    "student_mode": true,
+    "board_mode": true,
+    "offline_fallback": "Skutečné pravítko, proužek papíru položený mimo nulu, dvě značky a výpočet konec − začátek.",
+    "shared_hub_services_required": [
+      "navigation",
+      "deep_link",
+      "results_contract",
+      "accessibility_shell"
+    ],
+    "result_payload": {
+      "skill_id": "MEASURE_LENGTH_OFFSET",
+      "mastery_evidence": [
+        "marker_start_correct",
+        "marker_end_correct",
+        "length_difference_correct",
+        "unit_notation_correct",
+        "first_try_correct"
+      ],
+      "misconception_tags": [
+        "END_IS_LENGTH",
+        "WRONG_START_MARKER",
+        "WRONG_END_MARKER",
+        "UNIT_SCALE_FACTOR"
+      ],
+      "personal_data": false
+    }
+  },
+  "assets": [
+    {
+      "asset_id": "FY06-MD01-GAME",
+      "asset_type": "GAME",
+      "title": "Měřicí mise – Nula není začátek",
+      "source_url": "games/mereni-mimo-nulu/",
+      "version": "0.1.0",
+      "status": "TEACHING_READY",
+      "rights_status": "PASS",
+      "sync_status": "NEOVĚŘENO"
+    },
+    {
+      "asset_id": "FY06-MD01-BOARD",
+      "asset_type": "BOARD_MODE",
+      "title": "Tabule / TV – Měření mimo nulu",
+      "source_url": "games/mereni-mimo-nulu/",
+      "version": "0.1.0",
+      "status": "TEACHING_READY",
+      "rights_status": "PASS",
+      "sync_status": "NEOVĚŘENO"
+    }
+  ],
+  "qa": {
+    "PHYSICS_QA": "PASS",
+    "CURRICULUM_QA": "PASS",
+    "LEARNING_QA": "PASS",
+    "MECHANIC_QA": "PASS",
+    "FEEDBACK_QA": "PASS",
+    "ACCESSIBILITY_QA": "PASS",
+    "SAFETY_PRIVACY_QA": "PASS",
+    "RIGHTS_QA": "PASS",
+    "VISUAL_QA": "PASS_STANDALONE",
+    "TECHNICAL_QA": "PASS",
+    "HUB_DEV_INTEGRATION_QA": "PASS",
+    "HUB_MOBILE_LAYOUT_QA": "PASS",
+    "HUB_BOARD_MODE_QA": "PASS",
+    "HUB_EXTERNAL_PIXEL_QA": "PENDING",
+    "HUB_COMPAT_QA": "UNVERIFIED"
+  },
+  "blocking_reason": "Aktivita je implementovaná a funkčně ověřená v Macaly projektu Fyzika HUB na trase /6/delka, včetně student/board deep-linků a mobilního layoutu. HUB_READY ale zůstává blokovaný: centrální HUB nemá doložený GitHub produkční source-of-truth a integrovaný externí preview pixel audit nebylo možné dokončit. Macaly samo podle projektového standardu není produkční source-of-truth.",
+  "last_sync": "2026-09-12"
+}
