@@ -1,0 +1,98 @@
+{
+  "project_id": "FYZIKA",
+  "visual_id": "FY-06-HRA-01-V01",
+  "visual_revision": "1.0",
+  "grade": 6,
+  "lesson_id": "HRA-01",
+  "topic": "Měření délky mimo nulovou značku",
+  "level": "VÍCEÚROVŇOVÉ",
+  "learning_goal": "Žák vizuálně a číselně rozliší odečet na začátku, odečet na konci a skutečnou délku jako jejich rozdíl.",
+  "source_claims": [
+    "Délka předmětu je rozdíl polohy jeho konce a začátku na stejné délkové stupnici.",
+    "Když předmět nezačíná na nule, pravý odečet není automaticky jeho délka."
+  ],
+  "visual_type": "interactive",
+  "physics_profile": "measurement-scale",
+  "must_show": [
+    "Pravítko s dělením po 1 mm a číselnými centimetrovými značkami.",
+    "Předmět začínající na nenulové hodnotě stupnice.",
+    "Dvě samostatně ovladatelné svislé značky pro začátek a konec."
+  ],
+  "must_not_show": [
+    "Předmět začínající na 0 mm v této misi.",
+    "Geometricky nestejné rozestupy milimetrových dílků.",
+    "Automatické zvýraznění správných odečtů před žákovým pokusem.",
+    "Posun objektu nebo značek v jiné soustavě než stupnice pravítka."
+  ],
+  "entities": [
+    {"id": "ruler", "type": "measurement_scale", "label": "pravítko"},
+    {"id": "object", "type": "body", "label": "měřený předmět"},
+    {"id": "start-marker", "type": "measurement_marker", "label": "začátek"},
+    {"id": "end-marker", "type": "measurement_marker", "label": "konec"}
+  ],
+  "relationships": [
+    {"type": "length_difference", "from": "start-marker", "to": "end-marker", "rule": "length_mm = end_mm - start_mm"}
+  ],
+  "geometry_model": {
+    "deterministic": true,
+    "coordinate_system": "svg-viewBox-1-unit-equals-1-virtual-mm",
+    "invariants": [
+      "Sousledné milimetrové dílky mají konstantní rozestup 1 SVG jednotka.",
+      "X poloha levého okraje objektu = RULER_X + start_mm.",
+      "Šířka objektu = end_mm - start_mm.",
+      "X poloha značky = RULER_X + marker_mm.",
+      "Všechny generované úlohy mají start_mm > 0 a end_mm <= 145."
+    ],
+    "safe_frame": {"x_min": 5, "y_min": 5, "x_max": 175, "y_max": 87}
+  },
+  "interactions": [
+    {"control": "drag-keyboard-buttons", "label": "Značka začátku", "parameter": "startMarkerMm", "updates": ["start-marker.x", "start-output"], "invariants": ["Hodnota je celočíselný počet mm v intervalu 0 až 150."]},
+    {"control": "drag-keyboard-buttons", "label": "Značka konce", "parameter": "endMarkerMm", "updates": ["end-marker.x", "end-output"], "invariants": ["Hodnota je celočíselný počet mm v intervalu 0 až 150."]}
+  ],
+  "state_matrix": [
+    {"id": "minimum-start", "description": "start = 12 mm, délka = 25 mm"},
+    {"id": "representative", "description": "start = 34 mm, konec = 91 mm"},
+    {"id": "near-max-end", "description": "konec = 145 mm"},
+    {"id": "wrong-end-as-length", "description": "značky správně, odpověď = odečet konce"},
+    {"id": "mobile-nudge", "description": "ovládání obou značek pouze tlačítky po 1 mm"}
+  ],
+  "labels": ["Začátek", "Konec", "mm", "cm"],
+  "outputs": ["app"],
+  "shared_source": true,
+  "render_policy": {
+    "visible_svg_text_allowed": true,
+    "visible_svg_text_exception_reason": "Číselné značky jsou funkční součástí fyzikálního měřidla, nikoli dekorativní popisky.",
+    "requires_pixel_audit": true,
+    "required_devices": ["desktop", "mobile", "board"]
+  },
+  "accessibility": {
+    "not_color_only": true,
+    "reduced_motion_supported": true,
+    "text_equivalent": "Předmět leží nad pravítkem mimo nulu. Žák posouvá dvě značky na jeho levý a pravý okraj a určí rozdíl odečtů."
+  },
+  "known_failure_modes": [
+    "Dotykový úchyt značky je příliš úzký.",
+    "Responzivní změna deformuje stupnici.",
+    "Značka vizuálně nesedí na stejnou x souřadnici jako odpovídající dílek.",
+    "Číselné značky 0 nebo 15 se oříznou na kraji pravítka."
+  ],
+  "acceptance_tests": [
+    "Pro všechny generované úlohy platí length_mm = end_mm - start_mm.",
+    "Každá značka se pohybuje po celých milimetrech a její x poloha odpovídá stejnému modelu jako dílky pravítka.",
+    "Odpověď rovná odečtu konce je při start_mm > 0 diagnostikována jako END_IS_LENGTH.",
+    "Na desktopu, mobilu a tabuli není stupnice oříznuta ani deformována.",
+    "Dotykové ovládání má neviditelnou širokou hit-area a současně existují tlačítka i klávesnice."
+  ],
+  "qa": {
+    "PHYSICS_QA": "PASS",
+    "TEXT_VISUAL_SYNC": "PASS",
+    "GEOMETRY_QA": "PASS",
+    "INTERACTION_QA": "NEOVĚŘENO",
+    "ANIMATION_QA": "PASS",
+    "LEGIBILITY_QA": "NEOVĚŘENO",
+    "ACCESSIBILITY_QA": "NEOVĚŘENO",
+    "OUTPUT_SYNC_QA": "PASS",
+    "PROVENANCE_QA": "PASS",
+    "VISUAL_QA": "NEOVĚŘENO"
+  }
+}
