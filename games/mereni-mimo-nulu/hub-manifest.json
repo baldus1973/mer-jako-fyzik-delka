@@ -23,27 +23,32 @@
   "source_repo": "baldus1973/mer-jako-fyzik-delka",
   "source_branch": "feature/hra-mereni-mimo-nulu",
   "source_pr": 6,
-  "development_platform": "GitHub",
+  "development_platform": "GitHub + Macaly",
   "production_url": null,
   "presentation_url": null,
   "notebook_notes_url": null,
   "qr_target": null,
   "hub_target": {
     "platform": "Macaly",
+    "project_chat_id": "h1nqpirqd5aiczq6wn57i9ww",
     "development_url": "https://h1nqpirqd5aiczq6wn57i9ww.macaly.dev/6/delka",
     "existing_route": "/6/delka",
     "documented_level_route": "/6/delka?uroven=zakladni",
-    "route_evidence": "Projektové prezentace FY-06-DELKA-01 na Google Drive",
-    "route_live_smoke_test": "UNVERIFIED",
-    "source_access": "UNVERIFIED"
+    "route_evidence": "Projektové prezentace FY-06-DELKA-01 na Google Drive + zdroj src/routes/6.delka.tsx v Macaly",
+    "source_access": "PASS_MACALY",
+    "preview_build": "PASS",
+    "sandbox_browser_smoke_test": "PASS",
+    "external_preview_pixel_audit": "PENDING"
   },
   "requested_hub_integration": {
     "activity_id": "FY-06-HRA-01",
     "activity_slug": "mereni-mimo-nulu",
     "parent_route": "/6/delka",
-    "deep_link_parameter": null,
-    "deep_link_status": "UNVERIFIED",
-    "rule": "Nevytvářet paralelní trasu /6/mereni-delky. Aktivitu začlenit do existujícího modulu /6/delka a konkrétní deep-link parametr určit až podle skutečného HUB routeru."
+    "deep_link_parameter": "activity=mereni-mimo-nulu",
+    "student_deep_link": "/6/delka?activity=mereni-mimo-nulu&mode=student&seed=60101",
+    "board_deep_link": "/6/delka?activity=mereni-mimo-nulu&mode=board&seed=60101",
+    "deep_link_status": "PASS_SANDBOX",
+    "rule": "Nevytvářet paralelní trasu /6/mereni-delky. Aktivita je začleněna do existujícího modulu /6/delka."
   },
   "hub_contract": {
     "module_kind": "GAME",
@@ -106,10 +111,14 @@
     "ACCESSIBILITY_QA": "PASS",
     "SAFETY_PRIVACY_QA": "PASS",
     "RIGHTS_QA": "PASS",
-    "VISUAL_QA": "PASS",
+    "VISUAL_QA": "PASS_STANDALONE",
     "TECHNICAL_QA": "PASS",
+    "HUB_DEV_INTEGRATION_QA": "PASS",
+    "HUB_MOBILE_LAYOUT_QA": "PASS",
+    "HUB_BOARD_MODE_QA": "PASS",
+    "HUB_EXTERNAL_PIXEL_QA": "PENDING",
     "HUB_COMPAT_QA": "UNVERIFIED"
   },
-  "blocking_reason": "Existující HUB cílová trasa /6/delka je doložena projektovými prezentacemi, ale zdrojový Macaly projekt ani jeho router nejsou v tomto běhu dostupné přes připojený source-of-truth nástroj. Nelze proto bezpečně implementovat ani ověřit aktivitu, výsledkový kontrakt a konkrétní deep-link parametr.",
+  "blocking_reason": "Aktivita je implementovaná a funkčně ověřená v Macaly projektu Fyzika HUB na trase /6/delka, včetně student/board deep-linků a mobilního layoutu. HUB_READY ale zůstává blokovaný: centrální HUB nemá doložený GitHub produkční source-of-truth a integrovaný externí preview pixel audit nebylo možné dokončit. Macaly samo podle projektového standardu není produkční source-of-truth.",
   "last_sync": "2026-09-12"
 }
