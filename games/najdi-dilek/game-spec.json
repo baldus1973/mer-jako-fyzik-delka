@@ -1,0 +1,59 @@
+{
+  "game_id": "FY-06-HRA-01-M2",
+  "title": "Měřicí mise – Najdi dílek",
+  "grade": 6,
+  "topic": "Měření délky",
+  "primary_learning_goal": "Žák určí hodnotu nejmenšího dílku stupnice a správně odečte hodnotu označené polohy.",
+  "why_game": "Krátké deterministické varianty dovolují opakovaně trénovat skutečné čtení stupnice s okamžitou diagnostickou zpětnou vazbou.",
+  "mechanic": "Nejdřív určit hodnotu nejmenšího dílku, potom odečíst označenou polohu a zapsat ji v mm nebo cm.",
+  "loop": [
+    "prohlédni stupnici",
+    "urči nejmenší dílek",
+    "odečti označenou polohu",
+    "získej vysvětlující zpětnou vazbu",
+    "opakuj na změněné stupnici"
+  ],
+  "levels": {
+    "snizene": "Pouze 1 mm a 5 mm dílek, nápověda bez časového limitu.",
+    "zakladni": "1 mm, 2 mm a 5 mm dílek; odečet v mm nebo cm.",
+    "excelentni": "Nový kontext stupnice, zdůvodnění hodnoty dílku a diagnostika chybného odečtu."
+  },
+  "mastery_evidence": [
+    "smallest_division_correct",
+    "scale_reading_correct",
+    "unit_notation_correct",
+    "2_of_3_first_try_without_help"
+  ],
+  "misconception_tags": [
+    "SMALLEST_DIVISION_ERROR",
+    "COUNT_TICKS_NOT_SPACES",
+    "WRONG_TICK",
+    "UNIT_SCALE_FACTOR"
+  ],
+  "accessibility": {
+    "drag_required": false,
+    "keyboard": true,
+    "time_pressure": false,
+    "color_only_meaning": false
+  },
+  "privacy": {
+    "account": false,
+    "personal_data": false,
+    "online_leaderboard": false
+  },
+  "architecture": "HUB_MODULE_CANDIDATE",
+  "state": "IMPLEMENTED_PROTOTYPE_QA_PENDING",
+  "qa": {
+    "PHYSICS_QA": "PASS_BY_MODEL_SPEC",
+    "CURRICULUM_QA": "PASS",
+    "LEARNING_QA": "PASS",
+    "MECHANIC_QA": "PASS",
+    "FEEDBACK_QA": "PASS",
+    "ACCESSIBILITY_QA": "PASS_BY_DESIGN",
+    "SAFETY_PRIVACY_QA": "PASS",
+    "RIGHTS_QA": "PASS",
+    "VISUAL_QA": "PENDING_RENDER",
+    "TECHNICAL_QA": "PENDING_EXECUTION",
+    "HUB_COMPAT_QA": "UNVERIFIED"
+  }
+}
