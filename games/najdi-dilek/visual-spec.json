@@ -1,0 +1,48 @@
+{
+  "visual_id": "FY06-HRA01-M2-SCALE",
+  "visual_class": "PHYSICS_DIAGRAM",
+  "learning_goal": "Žák z geometrie stupnice správně odvodí hodnotu nejmenšího dílku a odečte polohu.",
+  "medium": ["web", "mobile", "board"],
+  "must_show": [
+    "hlavní značky po 10 mm",
+    "rovnoměrně rozmístěné menší dílky podle minorStepMm",
+    "jednu přesně označenou značku mimo hlavní centimetrové značky",
+    "číselné popisky hlavních centimetrových značek"
+  ],
+  "must_not_show": [
+    "nerovnoměrnou stupnici",
+    "cílovou šipku mezi dvěma značkami",
+    "geometrii odvozenou od pixelového měření",
+    "automaticky zobrazenou správnou odpověď před pokusem"
+  ],
+  "invariants": [
+    "majorStepMm = 10",
+    "minorStepMm ∈ {1,2,5}",
+    "targetMm je celočíselný násobek minorStepMm",
+    "targetMm není násobek 10",
+    "x(mm) = x0 + mm * pxPerMm pro všechny značky i cílovou šipku"
+  ],
+  "state_matrix": [
+    {"minorStepMm":1,"targetMm":37},
+    {"minorStepMm":2,"targetMm":38},
+    {"minorStepMm":5,"targetMm":35},
+    {"minorStepMm":1,"targetMm":139},
+    {"minorStepMm":5,"targetMm":15}
+  ],
+  "text_exception": "Číselné popisky pravítka jsou explicitní pedagogická výjimka; jsou funkční součástí měřidla.",
+  "acceptance_tests": [
+    "všechny značky leží na jedné lineární ose",
+    "vzdálenost sousedních malých značek je konstantní",
+    "cílová šipka míří přesně na existující značku",
+    "0 až 15 cm se nevejde mimo safe frame",
+    "mobil nesmí způsobit horizontální overflow celé stránky; scrollovat smí pouze scale-wrap"
+  ],
+  "qa": {
+    "SPEC_PASS":"PASS",
+    "REFERENCE_PASS":"PENDING_EXECUTION",
+    "PHYSICS_PASS":"PENDING_EXECUTION",
+    "RENDER_PASS":"PENDING",
+    "DIDACTIC_PASS":"PENDING_RENDER",
+    "TEXT_VISUAL_SYNC":"PENDING_RENDER"
+  }
+}
