@@ -1,0 +1,56 @@
+{
+  "game_id": "FY-06-HRA-01-M1",
+  "title": "Měřicí mise – Vyber správné měřidlo",
+  "grade": 6,
+  "topic": "Měření délky",
+  "primary_learning_goal": "Žák zvolí vhodné délkové měřidlo podle rozsahu, požadované jemnosti stupnice a tvaru měřeného objektu nebo úseku.",
+  "why_game": "Krátké situační rozhodování umožní opakovaně porovnávat více měřidel a okamžitě diagnostikovat, proč volba nevyhovuje.",
+  "mechanic": "Vybrat jedno měřidlo a jeden fyzikální důvod jeho vhodnosti.",
+  "mastery_evidence": [
+    "tool_choice_correct",
+    "reason_correct",
+    "2_of_3_first_try_without_help"
+  ],
+  "misconception_tags": [
+    "TOOL_SELECTION",
+    "RANGE_TOO_SHORT",
+    "RESOLUTION_TOO_COARSE",
+    "SHAPE_MISMATCH"
+  ],
+  "differentiation": {
+    "snizene": "Stejná fyzikální pravda, stručnější text, nápověda se třemi kontrolními otázkami a menší počet distraktorů v budoucím HUB režimu.",
+    "zakladni": "Čtyři měřidla, běžné školní situace, povinné zdůvodnění volby.",
+    "excelentni": "Transfer na nové situace, porovnání dvou technicky použitelných měřidel a vysvětlení, které je vhodnější a proč."
+  },
+  "accessibility": {
+    "drag_required": false,
+    "keyboard": true,
+    "button_alternative": true,
+    "time_pressure": false,
+    "color_only_meaning": false
+  },
+  "privacy": {
+    "account": false,
+    "personal_data": false,
+    "online_leaderboard": false
+  },
+  "rights": {
+    "external_runtime_assets": false,
+    "icons": "vlastní inline SVG"
+  },
+  "architecture": "HUB_MODULE_CANDIDATE",
+  "state": "IMPLEMENTED_PROTOTYPE_QA_PENDING",
+  "qa": {
+    "PHYSICS_QA": "PENDING_EXECUTION",
+    "CURRICULUM_QA": "PASS",
+    "LEARNING_QA": "PASS",
+    "MECHANIC_QA": "PASS",
+    "FEEDBACK_QA": "PASS_BY_DESIGN",
+    "ACCESSIBILITY_QA": "PENDING_BROWSER",
+    "SAFETY_PRIVACY_QA": "PASS",
+    "RIGHTS_QA": "PASS",
+    "VISUAL_QA": "NOT_REQUIRED_FOR_EXACT_GEOMETRY",
+    "TECHNICAL_QA": "PENDING_EXECUTION",
+    "HUB_COMPAT_QA": "UNVERIFIED"
+  }
+}
