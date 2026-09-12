@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Měřicí mise – Změř přesně od nuly</title>
+  <link rel="stylesheet" href="module.css" />
+</head>
+<body>
+  <main class="game-shell">
+    <header class="game-head">
+      <div>
+        <p class="eyebrow">FY-06-HRA-01 · Měřicí mise · v0.1.0</p>
+        <h1>Změř přesně od nuly</h1>
+        <p>Přilož pravítko správně k předmětu. Nula musí být přesně u jeho začátku a hrana pravítka těsně pod předmětem.</p>
+      </div>
+      <div class="progress" aria-live="polite"><strong>Mise 3</strong><span id="progressText">0/3 bez nápovědy</span></div>
+    </header>
+
+    <section class="task-card" aria-labelledby="taskTitle">
+      <div class="task-head">
+        <div>
+          <strong id="taskTitle">Papírový proužek a pravítko</strong>
+          <span>Posuň celé pravítko. Potom zapiš délku proužku.</span>
+        </div>
+        <button id="helpButton" type="button" aria-expanded="false">Nápověda</button>
+      </div>
+
+      <div class="scene-wrap" id="sceneWrap">
+        <svg id="sceneSvg" class="scene-svg" viewBox="0 0 824 382" role="img" aria-label="Předmět a posuvné pravítko"></svg>
+      </div>
+
+      <div id="helpBox" class="help-box" hidden>
+        <strong>Kontrola ve dvou krocích:</strong>
+        <ol>
+          <li>Svisle si porovnej začátek předmětu s nulou pravítka.</li>
+          <li>Hrana pravítka má být těsně u předmětu, ne daleko a ne přes něj.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="move-card" aria-label="Posun pravítka">
+      <div>
+        <strong>Jemný posun pravítka po 1 mm</strong>
+        <span>Pravítko můžeš také táhnout myší nebo prstem a ovládat šipkami na klávesnici.</span>
+      </div>
+      <div class="move-grid" aria-label="Směrová tlačítka">
+        <button type="button" data-move-y="-1" aria-label="Posunout pravítko nahoru">↑</button>
+        <button type="button" data-move-x="-1" aria-label="Posunout pravítko doleva">←</button>
+        <button type="button" data-move-y="1" aria-label="Posunout pravítko dolů">↓</button>
+        <button type="button" data-move-x="1" aria-label="Posunout pravítko doprava">→</button>
+      </div>
+    </section>
+
+    <section class="answer-card">
+      <label for="readingInput">Naměřená délka je</label>
+      <div class="reading-row">
+        <input id="readingInput" inputmode="decimal" autocomplete="off" aria-label="Naměřená délka" />
+        <select id="unitSelect" aria-label="Jednotka délky">
+          <option value="mm">mm</option>
+          <option value="cm">cm</option>
+        </select>
+      </div>
+    </section>
+
+    <section class="actions">
+      <button id="checkButton" class="primary" type="button">Zkontrolovat měření</button>
+      <button id="nextButton" type="button" disabled>Další úloha</button>
+      <button id="resetButton" type="button">Vrátit pravítko</button>
+      <button id="newSeriesButton" type="button">Nová série</button>
+    </section>
+
+    <section id="feedback" class="feedback" aria-live="polite">
+      <strong>Začni přiložením pravítka.</strong> Nula patří k začátku předmětu.
+    </section>
+
+    <footer>Bez účtu · bez jména · průběh pouze v tomto zařízení</footer>
+  </main>
+
+  <script src="../../physics.js"></script>
+  <script src="model.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+{
+  "visual_id": "FY06-HRA01-M3-ZERO-ALIGN",
+  "visual_class": "PHYSICS_DIAGRAM",
+  "learning_goal": "Žák z geometrie pozná správné přiložení pravítka: nulová značka je svisle pod začátkem předmětu a horní hrana pravítka je těsně pod předmětem.",
+  "medium": ["web", "mobile", "board"],
+  "must_show": [
+    "pevný předmět s jednoznačným levým a pravým koncem",
+    "pravítko délky 150 mm s dílky po 1 mm a popisky po 1 cm",
+    "zvýrazněnou nulovou značku pravítka",
+    "stejnou lineární souřadnou osu pro předmět, nulu a značky pravítka",
+    "při nápovědě svislou vodicí čáru přes začátek předmětu a vodorovnou vodicí čáru správné horní hrany pravítka"
+  ],
+  "must_not_show": [
+    "automatické přichycení pravítka ke správné poloze",
+    "nulu pravítka posunutou vůči skutečné stupnici",
+    "pomocnou čáru bez aktivní nápovědy",
+    "správnou číselnou délku před prvním pokusem",
+    "význam závislý pouze na barvě"
+  ],
+  "invariants": [
+    "objectEndMm - objectStartMm = lengthMm",
+    "správná nulová poloha rulerZeroMm = objectStartMm",
+    "správná horní hrana rulerTopMm = objectTopMm + objectHeightMm + targetGapMm",
+    "všechny vodorovné značky používají x(mm) = X0 + mm * PX_PER_MM",
+    "všechny svislé polohy používají y(mm) = Y0 + mm * PX_PER_MM",
+    "pravítko zůstává celé v pracovním rámci"
+  ],
+  "state_matrix": [
+    {"case":"correct","zeroErrorMm":0,"gapErrorMm":0},
+    {"case":"zero_left","zeroErrorMm":-10,"gapErrorMm":0},
+    {"case":"zero_right","zeroErrorMm":10,"gapErrorMm":0},
+    {"case":"ruler_too_high","zeroErrorMm":0,"gapErrorMm":-7},
+    {"case":"ruler_too_low","zeroErrorMm":0,"gapErrorMm":7},
+    {"case":"short_object","lengthMm":35},
+    {"case":"long_object","lengthMm":120}
+  ],
+  "text_exception": "Číselné popisky stupnice 0–15 jsou explicitní pedagogická výjimka, protože jsou funkční součástí měřidla. Pomocné vodicí čáry nemají text uvnitř SVG.",
+  "acceptance_tests": [
+    "nula pravítka leží přesně na první značce jeho stupnice",
+    "při correct stavu je nulová značka na stejné x souřadnici jako začátek předmětu",
+    "při correct stavu je horní hrana pravítka ve vzdálenosti targetGapMm od spodní hrany předmětu",
+    "1mm dílky jsou rovnoměrné a 10mm značky odpovídají číselným popiskům",
+    "mobil nesmí způsobit horizontální overflow celé stránky; scrollovat smí pouze scene-wrap",
+    "drag i tlačítka mění stejný rulerZeroMm/rulerTopMm model"
+  ],
+  "qa": {
+    "SPEC_PASS":"PASS",
+    "REFERENCE_PASS":"PASS",
+    "PHYSICS_PASS":"PASS",
+    "RENDER_PASS":"PASS",
+    "DIDACTIC_PASS":"PASS",
+    "TEXT_VISUAL_SYNC":"PASS"
+  }
+}
