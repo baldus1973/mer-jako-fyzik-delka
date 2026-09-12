@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Měřicí mise – Najdi dílek</title>
+  <link rel="stylesheet" href="module.css" />
+</head>
+<body>
+  <main class="game-shell">
+    <header class="game-head">
+      <div>
+        <p class="eyebrow">FY-06-HRA-01 · Měřicí mise · v0.1.0</p>
+        <h1>Najdi dílek</h1>
+        <p>Nejdřív zjisti hodnotu nejmenšího dílku stupnice. Potom odečti označenou polohu.</p>
+      </div>
+      <div class="progress" aria-live="polite"><strong>Mise 2</strong><span id="progressText">0/3 bez nápovědy</span></div>
+    </header>
+
+    <section class="task-card" aria-labelledby="scaleTitle">
+      <div class="task-head">
+        <div><strong id="scaleTitle">Stupnice pravítka</strong><span>Hlavní značky jsou po 1 cm.</span></div>
+        <button id="helpButton" type="button" aria-expanded="false">Nápověda</button>
+      </div>
+      <div class="scale-wrap">
+        <svg id="scaleSvg" class="scale-svg" viewBox="0 0 760 220" role="img" aria-label="Pravítko s označenou polohou"></svg>
+      </div>
+      <p class="visual-note">Čísla označují centimetry. Šipka míří přesně na jednu značku stupnice.</p>
+      <div id="helpBox" class="help-box" hidden>
+        <strong>Jak na to:</strong> vezmi vzdálenost mezi dvěma očíslovanými značkami (1 cm = 10 mm) a rozděl ji počtem stejných mezer mezi nimi.
+      </div>
+    </section>
+
+    <section class="answer-grid">
+      <div class="answer-card">
+        <label for="divisionSelect">1. Nejmenší dílek stupnice je</label>
+        <select id="divisionSelect">
+          <option value="">vyber</option>
+          <option value="1">1 mm</option>
+          <option value="2">2 mm</option>
+          <option value="5">5 mm</option>
+        </select>
+      </div>
+      <div class="answer-card">
+        <label for="readingInput">2. Označená poloha je</label>
+        <div class="reading-row">
+          <input id="readingInput" inputmode="decimal" autocomplete="off" aria-label="Hodnota označené polohy" />
+          <select id="unitSelect" aria-label="Jednotka odečtu">
+            <option value="mm">mm</option>
+            <option value="cm">cm</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <section class="actions">
+      <button id="checkButton" class="primary" type="button">Zkontrolovat</button>
+      <button id="nextButton" type="button" disabled>Další úloha</button>
+      <button id="newSeriesButton" type="button">Nová série</button>
+    </section>
+
+    <section id="feedback" class="feedback" aria-live="polite">
+      <strong>Začni hodnotou dílku.</strong> Pak odečti polohu označené značky.
+    </section>
+
+    <footer>Bez účtu · bez jména · průběh pouze v tomto zařízení</footer>
+  </main>
+
+  <script src="model.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
