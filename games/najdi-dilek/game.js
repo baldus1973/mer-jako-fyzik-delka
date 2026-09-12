@@ -3,6 +3,7 @@
 
   const game = globalThis.ScaleDivisionGame;
   const svg = document.getElementById('scaleSvg');
+  const scaleWrap = document.querySelector('.scale-wrap');
   const divisionSelect = document.getElementById('divisionSelect');
   const readingInput = document.getElementById('readingInput');
   const unitSelect = document.getElementById('unitSelect');
@@ -26,6 +27,16 @@
     for (const [key, value] of Object.entries(attrs)) node.setAttribute(key, String(value));
     if (text) node.textContent = text;
     return node;
+  }
+
+  function keepTargetVisible(targetX) {
+    requestAnimationFrame(() => {
+      if (!scaleWrap || scaleWrap.scrollWidth <= scaleWrap.clientWidth) return;
+      const targetPx = (targetX / 760) * scaleWrap.scrollWidth;
+      const desired = targetPx - scaleWrap.clientWidth / 2;
+      const maxScroll = scaleWrap.scrollWidth - scaleWrap.clientWidth;
+      scaleWrap.scrollLeft = Math.max(0, Math.min(maxScroll, desired));
+    });
   }
 
   function renderScale(task) {
@@ -53,11 +64,12 @@
     const targetX = x0 + task.targetMm * pxPerMm;
     svg.appendChild(svgEl('line', { x1: targetX, y1: 30, x2: targetX, y2: 92, class: 'target' }));
     svg.appendChild(svgEl('polygon', { points: `${targetX - 10},82 ${targetX + 10},82 ${targetX},100`, class: 'target-head' }));
+    keepTargetVisible(targetX);
   }
 
   function feedbackFor(result) {
     if (result.code === 'division.wrong') {
-      return ['Nejdřív oprav hodnotu dílku.', `Mezi dvěma centimetrovými značkami je 10 mm. Stejné mezery proto musí dohromady dát 10 mm.`];
+      return ['Nejdřív oprav hodnotu dílku.', `Mezi dvěma centimetrovými značkami je 10 mm. Počítej stejné mezery, ne počet čárek; všechny mezery dohromady musí dát 10 mm.`];
     }
     if (result.code === 'reading.invalid') return ['Chybí číselná hodnota.', 'Zapiš číslo a vyber jednotku mm nebo cm.'];
     if (result.code === 'unit.scale_factor') return ['Pozor na jednotku.', `Označená poloha je ${result.expectedReadingMm} mm = ${String(result.expectedReadingCm).replace('.', ',')} cm.`];
