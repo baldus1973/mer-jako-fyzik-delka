@@ -18,10 +18,7 @@
     </header>
 
     <section class="task-card" aria-labelledby="taskTitle">
-      <div class="task-head">
-        <div><strong id="taskTitle">Úloha</strong><span id="taskText"></span></div>
-        <button id="helpButton" type="button" aria-expanded="false">Nápověda</button>
-      </div>
+      <div class="task-head"><div><strong id="taskTitle">Úloha</strong><span id="taskText"></span></div><button id="helpButton" type="button" aria-expanded="false">Nápověda</button></div>
       <div class="readings" aria-label="Tři výsledky měření">
         <div><span>1. měření</span><strong id="reading1"></strong></div>
         <div><span>2. měření</span><strong id="reading2"></strong></div>
@@ -34,7 +31,7 @@
 
     <section class="reason-card">
       <strong>Proč měření opakujeme?</strong>
-      <div id="reasonList" class="reason-list" role="radiogroup" aria-label="Důvod opakovaného měření"></div>
+      <div id="reasonList" class="reason-list" role="group" aria-label="Důvod opakovaného měření"></div>
     </section>
 
     <section class="actions">
