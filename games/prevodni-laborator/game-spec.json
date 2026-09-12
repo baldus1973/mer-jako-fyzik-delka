@@ -1,0 +1,57 @@
+{
+  "game_id": "FY-06-HRA-01-M5",
+  "title": "Měřicí mise – Převodní laboratoř",
+  "grade": 6,
+  "topic": "Měření délky a převody jednotek",
+  "primary_learning_goal": "Žák převede stejnou naměřenou délku mezi mm, cm a m a zdůvodní převod vztahem mezi jednotkami.",
+  "why_game": "Krátké situační převody navazují na skutečné výsledky měření a umožňují diagnostikovat směr převodu, chybný faktor a záměnu jednotek.",
+  "mechanic": "Převést naměřenou hodnotu do zadané jednotky a vybrat správný vztah a operaci.",
+  "mastery_evidence": [
+    "conversion_value_correct",
+    "conversion_rule_correct",
+    "direction_understood",
+    "2_of_3_first_try_without_help"
+  ],
+  "misconception_tags": [
+    "CONVERSION_DIRECTION",
+    "DECIMAL_SHIFT",
+    "UNIT_SCALE_FACTOR",
+    "UNIT_MISSING"
+  ],
+  "differentiation": {
+    "snizene": "Převody pouze mezi sousedními jednotkami mm↔cm a cm↔m, viditelný vztah jednotek, bez časového limitu.",
+    "zakladni": "Převody mm↔cm↔m v praktických kontextech měření, povinné zdůvodnění vztahu.",
+    "excelentni": "Přímé převody mm↔m, diagnostika cizí chyby a vysvětlení směru změny číselné hodnoty."
+  },
+  "accessibility": {
+    "drag_required": false,
+    "keyboard": true,
+    "button_alternative": true,
+    "time_pressure": false,
+    "color_only_meaning": false
+  },
+  "privacy": {
+    "account": false,
+    "personal_data": false,
+    "online_leaderboard": false
+  },
+  "rights": {
+    "external_runtime_assets": false,
+    "content": "vlastní text a vlastní UI"
+  },
+  "architecture": "HUB_MODULE_CANDIDATE",
+  "state": "IMPLEMENTED_PROTOTYPE_QA_PENDING",
+  "qa": {
+    "PHYSICS_QA": "PENDING_EXECUTION",
+    "CURRICULUM_QA": "PASS",
+    "LEARNING_QA": "PASS",
+    "MECHANIC_QA": "PASS",
+    "FEEDBACK_QA": "PASS_BY_DESIGN",
+    "ACCESSIBILITY_QA": "PENDING_BROWSER",
+    "SAFETY_PRIVACY_QA": "PASS",
+    "RIGHTS_QA": "PASS",
+    "VISUAL_QA": "NOT_REQUIRED_FOR_EXACT_GEOMETRY",
+    "TECHNICAL_QA": "PENDING_EXECUTION",
+    "HUB_COMPAT_QA": "UNVERIFIED"
+  }
+}
