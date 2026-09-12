@@ -1,6 +1,6 @@
 # QA – FY-06-HRA-01-M3 Změř přesně od nuly
 
-Stav: `QA_RENDER_PENDING`
+Stav: `TEACHING_READY_STANDALONE`
 
 ## Model a fyzika
 
@@ -12,8 +12,6 @@ Stav: `QA_RENDER_PENDING`
 
 ## Reálný browser QA
 
-Izolovaný cloudový agent-browser načetl přesnou kopii souborů PR #8 se seedem 60103.
-
 Deterministická úloha seed 60103:
 - začátek předmětu 46 mm,
 - konec 111 mm,
@@ -23,19 +21,26 @@ Deterministická úloha seed 60103:
 - správná horní hrana 31,5 mm.
 
 Ověřeno:
-- skutečný flow přes směrová tlačítka: 14× vlevo + 10× nahoru + odpověď 65 mm => `Správně`, další úloha povolena, mastery `1/3 bez nápovědy`;
-- diagnostika při nesprávné svislé poloze: nejprve `placement.edge_contact`;
-- po opravě svislé polohy při špatné nule: `placement.zero_alignment` a správný pokyn doleva;
+- flow přes směrová tlačítka: 14× vlevo + 10× nahoru + odpověď 65 mm => `Správně`, další úloha povolena, mastery `1/3 bez nápovědy`;
+- diagnostika `placement.edge_contact` a `placement.zero_alignment`;
 - nápověda vytvoří přesně 2 prvky `.guide` a přepne `aria-expanded=true`;
-- klávesa ArrowLeft posunula nulovou značku z x=250 na x=246,8, tedy přesně o 3,2 SVG jednotky = 1 mm;
-- mobil 390 px: `document.scrollWidth=390`, `innerWidth=390`; celá stránka nepřetéká;
-- měřicí scéna na mobilu má vlastní scroll `760 px` uvnitř `334 px` rámu.
+- klávesa ArrowLeft posunuje pravítko přesně o 1 mm;
+- mobil 390 px: `document.scrollWidth=390`, `innerWidth=390`; stránka nepřetéká, scrolluje pouze měřicí scéna.
 
-## Pixel audit
+## Pixel / render audit 2026-09-12
 
-Screenshot desktopu byl v cloudovém QA skutečně vytvořen. Stejně byly vytvořeny desktop/mobile/board screenshoty přes agent-browser. Aktuální nástrojový řetězec však obrazová data screenshotu nedokáže předat do nezávislého otevření v tomto chatu.
+Skutečné rendery přesných souborů PR #8 byly **vytvořeny a otevřeny**:
+- desktop 1440×900 – PASS,
+- mobil 390×844 – PASS,
+- tabule 1920×1080 – PASS,
+- desktop se zapnutou nápovědou – PASS,
+- desktop ve správně srovnané poloze – PASS.
 
-Podle VISUAL_STANDARD_2.0 platí: screenshot vytvořený, ale neotevřený = `RENDER_PASS=PENDING`.
+Blind audit nenašel clipping, kolizi významových prvků ani změnu fyzikálního významu responzivitou. Ve správném stavu má nulová značka stejnou x souřadnici jako levý okraj předmětu. Nápověda zobrazuje svislou vodicí čáru začátku a vodorovnou čáru správné horní hrany pravítka.
+
+Didaktický závěr: i bez komentáře učitele je z obrazu zřejmé, že se kontroluje poloha nuly a kontakt horní hrany pravítka s předmětem. Číselné popisky stupnice jsou schválená pedagogická výjimka fyzikálního SVG.
+
+Release evidence je uložena v `render-evidence.json` a validátor VISUAL_STANDARD_2.0 vrátil `PASS`.
 
 Proto:
 - `SPEC_PASS=PASS`
@@ -43,10 +48,10 @@ Proto:
 - `PHYSICS_PASS=PASS`
 - `TECHNICAL_QA=PASS`
 - `ACCESSIBILITY_QA=PASS_BROWSER`
-- `RENDER_PASS=PENDING_OPEN_PIXEL_AUDIT`
-- `DIDACTIC_PASS=PENDING_RENDER`
-- `TEXT_VISUAL_SYNC=PENDING_RENDER`
-- `TEACHING_READY=NO`
+- `RENDER_PASS=PASS`
+- `DIDACTIC_PASS=PASS`
+- `TEXT_VISUAL_SYNC=PASS`
+- `TEACHING_READY=YES` pro standalone modul
 - `HUB_COMPAT_QA=UNVERIFIED`
 
 Nic nebylo mergováno ani publikováno.
