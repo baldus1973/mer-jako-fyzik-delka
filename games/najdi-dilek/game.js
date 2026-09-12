@@ -42,7 +42,7 @@
   function renderScale(task) {
     svg.replaceChildren();
     svg.appendChild(svgEl('title', {}, 'Pravítko s různě jemnou stupnicí a červenou šipkou na jednu značku'));
-    svg.appendChild(svgEl('desc', {}, `Nejmenší dílek stupnice je ${task.minorStepMm} mm. Označená poloha je ${task.targetMm} mm.`));
+    svg.appendChild(svgEl('desc', {}, 'Pravítko s hlavními centimetrovými a menšími pomocnými značkami. Červená šipka označuje jednu značku stupnice.'));
 
     const x0 = 50;
     const x1 = 710;
