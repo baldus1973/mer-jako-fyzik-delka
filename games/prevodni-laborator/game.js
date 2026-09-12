@@ -27,20 +27,24 @@
   let attempted = false;
   let usedHelp = false;
 
-  function renderRules() {
+  function renderRules(focusSelected = false) {
     ruleList.replaceChildren();
+    let selectedButton = null;
     model.RULES.forEach((rule) => {
       const button = document.createElement('button');
+      const selected = rule.code === selectedRuleCode;
       button.type = 'button';
       button.className = 'rule-option';
-      button.setAttribute('aria-pressed', String(rule.code === selectedRuleCode));
+      button.setAttribute('aria-pressed', String(selected));
       button.textContent = rule.text;
+      if (selected) selectedButton = button;
       button.addEventListener('click', () => {
         selectedRuleCode = rule.code;
-        renderRules();
+        renderRules(true);
       });
       ruleList.appendChild(button);
     });
+    if (focusSelected && selectedButton) requestAnimationFrame(() => selectedButton.focus());
   }
 
   function setFeedback(kind, title, text) {
