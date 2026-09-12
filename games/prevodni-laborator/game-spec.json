@@ -1,0 +1,34 @@
+{
+  "game_id": "FY-06-HRA-01-M5",
+  "title": "Měřicí mise – Převodní laboratoř",
+  "grade": 6,
+  "topic": "Měření délky a převody jednotek",
+  "primary_learning_goal": "Žák převede stejnou naměřenou délku mezi mm, cm a m a zdůvodní převod vztahem mezi jednotkami.",
+  "why_game": "Krátké situační převody navazují na skutečné výsledky měření a umožňují diagnostikovat směr převodu, chybný faktor a záměnu jednotek.",
+  "mechanic": "Převést naměřenou hodnotu do zadané jednotky a vybrat správný vztah a operaci.",
+  "mastery_evidence": ["conversion_value_correct","conversion_rule_correct","direction_understood","2_of_3_first_try_without_help"],
+  "misconception_tags": ["CONVERSION_DIRECTION","DECIMAL_SHIFT","UNIT_SCALE_FACTOR","UNIT_MISSING"],
+  "differentiation": {
+    "snizene": "Převody pouze mezi sousedními jednotkami mm↔cm a cm↔m, viditelný vztah jednotek, bez časového limitu.",
+    "zakladni": "Převody mm↔cm↔m v praktických kontextech měření, povinné zdůvodnění vztahu.",
+    "excelentni": "Přímé převody mm↔m, diagnostika cizí chyby a vysvětlení směru změny číselné hodnoty."
+  },
+  "accessibility": {"drag_required":false,"keyboard":true,"button_alternative":true,"time_pressure":false,"color_only_meaning":false,"selection_semantics":"native button + aria-pressed; focus preserved after selection"},
+  "privacy": {"account":false,"personal_data":false,"online_leaderboard":false},
+  "rights": {"external_runtime_assets":false,"content":"vlastní text a vlastní UI"},
+  "architecture": "HUB_MODULE_CANDIDATE",
+  "state": "TEACHING_READY_STANDALONE",
+  "qa": {
+    "PHYSICS_QA":"PASS_MODEL_5000_SEEDS",
+    "CURRICULUM_QA":"PASS",
+    "LEARNING_QA":"PASS",
+    "MECHANIC_QA":"PASS",
+    "FEEDBACK_QA":"PASS_BROWSER",
+    "ACCESSIBILITY_QA":"PASS_BROWSER",
+    "SAFETY_PRIVACY_QA":"PASS",
+    "RIGHTS_QA":"PASS",
+    "VISUAL_QA":"NOT_REQUIRED_FOR_EXACT_GEOMETRY",
+    "TECHNICAL_QA":"PASS_BROWSER_AND_MODEL",
+    "HUB_COMPAT_QA":"UNVERIFIED"
+  }
+}
