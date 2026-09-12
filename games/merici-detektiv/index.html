@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Měřicí mise – Měřicí detektiv</title>
+  <link rel="stylesheet" href="module.css">
+</head>
+<body>
+  <main class="boss-shell" data-testid="boss-root">
+    <header class="boss-header">
+      <p class="eyebrow">FY-06-HRA-01 · BOSS · V0.1.0</p>
+      <h1>Měřicí detektiv</h1>
+      <p>Najdi hlavní chybu v měření a potom oprav postup nebo výsledek.</p>
+      <div class="status-line"><strong id="case-label">Případ 1/6</strong><span id="mastery-label">0/6 vyřešeno</span></div>
+    </header>
+
+    <section class="case-card" aria-labelledby="case-title">
+      <h2 id="case-title">Načítám případ…</h2>
+      <p id="case-report"></p>
+      <button id="hint-button" type="button" aria-expanded="false">Nápověda</button>
+      <p id="hint-box" hidden></p>
+    </section>
+
+    <section class="choice-block">
+      <h2>Kde je hlavní chyba?</h2>
+      <div id="diagnosis-options" role="radiogroup" aria-label="Diagnóza chyby"></div>
+    </section>
+
+    <section class="choice-block">
+      <h2>Jak případ opravíš?</h2>
+      <div id="repair-options" role="radiogroup" aria-label="Oprava případu"></div>
+    </section>
+
+    <div class="actions">
+      <button id="check-button" type="button">Prověřit případ</button>
+      <button id="next-button" type="button" disabled>Další případ</button>
+      <button id="restart-button" type="button">Nová série</button>
+    </div>
+
+    <section id="feedback" class="feedback" aria-live="polite"><strong>Začni jako detektiv.</strong> Najdi nejdřív hlavní fyzikální chybu.</section>
+    <footer>Bez účtu · bez jména · bez časového limitu</footer>
+  </main>
+  <script src="model.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>

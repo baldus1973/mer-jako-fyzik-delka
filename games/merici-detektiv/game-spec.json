@@ -1,0 +1,47 @@
+{
+  "game_id": "FY-06-HRA-01-BOSS",
+  "title": "Měřicí detektiv",
+  "grade": 6,
+  "topic": "Měření délky",
+  "stage": "BOSS_TRANSFER",
+  "primary_learning_goal": "Diagnostikovat chybný postup měření délky a zvolit fyzikálně správnou opravu.",
+  "secondary_review_skills": [
+    "instrument_choice",
+    "scale_division",
+    "zero_alignment",
+    "offset_reading",
+    "unit_conversion",
+    "repeated_measurement"
+  ],
+  "core_mechanic": "Každý případ obsahuje chybný žákovský postup. Hráč nejprve označí hlavní chybu a potom vybere správnou opravu. Samotná diagnóza nestačí.",
+  "learning_evidence": {
+    "required": "správná diagnóza + správná oprava",
+    "skills_are_separate": true,
+    "score_is_not_mastery": true
+  },
+  "difficulty": {
+    "reduced": "méně textu, možnost nápovědy, bez časového limitu",
+    "basic": "všech 6 typů případů s výběrem diagnózy a opravy",
+    "excellent": "později lze přidat přenosový případ bez nabízených oprav a s krátkým zdůvodněním"
+  },
+  "privacy": "Bez účtu, jména, online žebříčku a síťového ukládání výsledků.",
+  "rights": "Pouze vlastní textové scénáře a vlastní UI bez externích aktiv.",
+  "hub": {
+    "candidate": true,
+    "publication_approved": false,
+    "compat_status": "UNVERIFIED"
+  },
+  "qa": {
+    "PHYSICS_QA": "PENDING_EXECUTION",
+    "CURRICULUM_QA": "PASS",
+    "LEARNING_QA": "PASS",
+    "MECHANIC_QA": "PASS",
+    "FEEDBACK_QA": "PENDING_BROWSER",
+    "ACCESSIBILITY_QA": "PENDING_BROWSER",
+    "SAFETY_PRIVACY_QA": "PASS",
+    "RIGHTS_QA": "PASS",
+    "VISUAL_QA": "NOT_REQUIRED_FOR_EXACT_GEOMETRY",
+    "TECHNICAL_QA": "PENDING_EXECUTION",
+    "HUB_COMPAT_QA": "UNVERIFIED"
+  }
+}
