@@ -1,0 +1,62 @@
+{
+  "game_id": "FY-06-HRA-01-M3",
+  "title": "Měřicí mise – Změř přesně od nuly",
+  "grade": 6,
+  "topic": "Měření délky",
+  "primary_learning_goal": "Žák správně přiloží pravítko k předmětu: nula je u začátku, hrana pravítka je těsně u předmětu a odečet délky je správný.",
+  "why_game": "Interaktivní posun dovoluje bezpečně a opakovaně nacvičit skutečný postup přiložení pravítka a rozlišit chybu polohy od chyby odečtu.",
+  "mechanic": "Posunout celé pravítko ve dvou osách, správně srovnat nulu a hranu, potom zapsat délku v mm nebo cm.",
+  "loop": [
+    "prohlédni předmět a pravítko",
+    "posuň pravítko k předmětu",
+    "srovnej nulu se začátkem",
+    "odečti délku",
+    "získej diagnostickou zpětnou vazbu",
+    "opakuj s jinou délkou a počáteční chybou"
+  ],
+  "levels": {
+    "snizene": "Velké ovládací prvky, posun po 1 mm, nápověda se dvěma pomocnými čarami, bez časového limitu; délky lze omezit na násobky 5 mm.",
+    "zakladni": "Posun pravítka ve dvou osách, běžné celočíselné délky v mm, odpověď v mm nebo cm.",
+    "excelentni": "Bez pomocných čar, přenos na různé počáteční polohy a vysvětlení, zda chyba vznikla přiložením nebo odečtem."
+  },
+  "mastery_evidence": [
+    "edge_contact_correct",
+    "zero_alignment_correct",
+    "scale_reading_correct",
+    "unit_notation_correct",
+    "2_of_3_first_try_without_help"
+  ],
+  "misconception_tags": [
+    "ZERO_ALIGNMENT",
+    "RULER_EDGE_GAP",
+    "READING_VALUE",
+    "UNIT_SCALE_FACTOR"
+  ],
+  "accessibility": {
+    "drag_required": false,
+    "keyboard": true,
+    "button_alternative": true,
+    "time_pressure": false,
+    "color_only_meaning": false
+  },
+  "privacy": {
+    "account": false,
+    "personal_data": false,
+    "online_leaderboard": false
+  },
+  "architecture": "HUB_MODULE_CANDIDATE",
+  "state": "IMPLEMENTED_PROTOTYPE_QA_PENDING",
+  "qa": {
+    "PHYSICS_QA": "PENDING_EXECUTION",
+    "CURRICULUM_QA": "PASS",
+    "LEARNING_QA": "PASS",
+    "MECHANIC_QA": "PASS",
+    "FEEDBACK_QA": "PASS_BY_DESIGN",
+    "ACCESSIBILITY_QA": "PENDING_BROWSER",
+    "SAFETY_PRIVACY_QA": "PASS",
+    "RIGHTS_QA": "PASS",
+    "VISUAL_QA": "PENDING_RENDER",
+    "TECHNICAL_QA": "PENDING_EXECUTION",
+    "HUB_COMPAT_QA": "UNVERIFIED"
+  }
+}
