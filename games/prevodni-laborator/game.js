@@ -33,8 +33,7 @@
       const button = document.createElement('button');
       button.type = 'button';
       button.className = 'rule-option';
-      button.setAttribute('role', 'radio');
-      button.setAttribute('aria-checked', String(rule.code === selectedRuleCode));
+      button.setAttribute('aria-pressed', String(rule.code === selectedRuleCode));
       button.textContent = rule.text;
       button.addEventListener('click', () => {
         selectedRuleCode = rule.code;
@@ -111,13 +110,7 @@
     taskIndex += 1;
     if (taskIndex >= 3) {
       const mastery = firstTryCorrect >= 2;
-      setFeedback(
-        mastery ? 'ok' : '',
-        mastery ? 'Průběžně zvládnuto.' : 'Ještě potrénuj převody.',
-        mastery
-          ? 'Aspoň 2 ze 3 převodů jsi zvládl napoprvé bez nápovědy.'
-          : 'V nové sérii vždy nejdřív napiš vztah jednotek a zkontroluj, zda se při větší jednotce číslo zmenšilo.',
-      );
+      setFeedback(mastery ? 'ok' : '', mastery ? 'Průběžně zvládnuto.' : 'Ještě potrénuj převody.', mastery ? 'Aspoň 2 ze 3 převodů jsi zvládl napoprvé bez nápovědy.' : 'V nové sérii vždy nejdřív napiš vztah jednotek a zkontroluj, zda se při větší jednotce číslo zmenšilo.');
       nextButton.disabled = true;
       return;
     }
