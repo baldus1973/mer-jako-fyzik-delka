@@ -26,20 +26,24 @@
   let attempted = false;
   let usedHelp = false;
 
-  function renderReasons() {
+  function renderReasons(focusSelected = false) {
     reasonList.replaceChildren();
+    let selectedButton = null;
     model.REASONS.forEach((reason) => {
       const button = document.createElement('button');
+      const selected = reason.code === selectedReasonCode;
       button.type = 'button';
       button.className = 'reason-option';
-      button.setAttribute('aria-pressed', String(reason.code === selectedReasonCode));
+      button.setAttribute('aria-pressed', String(selected));
       button.textContent = reason.text;
+      if (selected) selectedButton = button;
       button.addEventListener('click', () => {
         selectedReasonCode = reason.code;
-        renderReasons();
+        renderReasons(true);
       });
       reasonList.appendChild(button);
     });
+    if (focusSelected && selectedButton) requestAnimationFrame(() => selectedButton.focus());
   }
 
   function setFeedback(kind, title, text) {
