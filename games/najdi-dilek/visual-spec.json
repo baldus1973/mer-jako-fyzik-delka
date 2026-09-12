@@ -34,15 +34,19 @@
     "všechny značky leží na jedné lineární ose",
     "vzdálenost sousedních malých značek je konstantní",
     "cílová šipka míří přesně na existující značku",
-    "0 až 15 cm se nevejde mimo safe frame",
-    "mobil nesmí způsobit horizontální overflow celé stránky; scrollovat smí pouze scale-wrap"
+    "0 až 15 cm zůstává uvnitř SVG safe frame",
+    "mobil nesmí způsobit horizontální overflow celé stránky; scrollovat smí pouze scale-wrap",
+    "cílová šipka musí být po načtení viditelná i pro krajní cíle 15 mm a 139 mm"
   ],
   "qa": {
     "SPEC_PASS":"PASS",
-    "REFERENCE_PASS":"PENDING_EXECUTION",
-    "PHYSICS_PASS":"PENDING_EXECUTION",
-    "RENDER_PASS":"PENDING",
-    "DIDACTIC_PASS":"PENDING_RENDER",
-    "TEXT_VISUAL_SYNC":"PENDING_RENDER"
+    "REFERENCE_PASS":"PASS",
+    "PHYSICS_PASS":"PASS",
+    "RENDER_PASS":"PASS",
+    "DIDACTIC_PASS":"PASS",
+    "TEXT_VISUAL_SYNC":"PASS",
+    "GEOMETRY_QA":"PASS",
+    "LEGIBILITY":"PASS",
+    "ACCESSIBILITY":"PASS"
   }
 }
