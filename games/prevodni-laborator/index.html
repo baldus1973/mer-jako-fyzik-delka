@@ -19,13 +19,9 @@
 
     <section class="task-card" aria-labelledby="taskTitle">
       <div class="task-head">
-        <div>
-          <strong id="taskTitle">Úloha</strong>
-          <span id="taskContext"></span>
-        </div>
+        <div><strong id="taskTitle">Úloha</strong><span id="taskContext"></span></div>
         <button id="helpButton" type="button" aria-expanded="false">Nápověda</button>
       </div>
-
       <div class="conversion-line" aria-live="polite">
         <div class="source-value"><span id="sourceNumber">0</span> <strong id="sourceUnit">mm</strong></div>
         <div class="arrow" aria-hidden="true">→</div>
@@ -34,7 +30,6 @@
           <span class="answer-row"><input id="answerInput" inputmode="decimal" autocomplete="off" aria-label="Převedená hodnota" /><strong id="targetUnit">cm</strong></span>
         </label>
       </div>
-
       <div id="helpBox" class="help-box" hidden>
         <strong>Nejdřív vztah jednotek, potom výpočet:</strong>
         <p id="helpText">1 cm = 10 mm.</p>
@@ -44,7 +39,7 @@
 
     <section class="reason-card">
       <strong>Který vztah a operace platí?</strong>
-      <div id="ruleList" class="rule-list" role="radiogroup" aria-label="Pravidlo převodu"></div>
+      <div id="ruleList" class="rule-list" role="group" aria-label="Pravidlo převodu"></div>
     </section>
 
     <section class="actions">
@@ -52,14 +47,9 @@
       <button id="nextButton" type="button" disabled>Další úloha</button>
       <button id="newSeriesButton" type="button">Nová série</button>
     </section>
-
-    <section id="feedback" class="feedback" aria-live="polite">
-      <strong>Začni vztahem jednotek.</strong> Nejdřív si rozmysli, zda převádíš na větší, nebo menší jednotku.
-    </section>
-
+    <section id="feedback" class="feedback" aria-live="polite"><strong>Začni vztahem jednotek.</strong> Nejdřív si rozmysli, zda převádíš na větší, nebo menší jednotku.</section>
     <footer>Bez účtu · bez jména · žádný časový limit</footer>
   </main>
-
   <script src="model.js"></script>
   <script src="game.js"></script>
 </body>
