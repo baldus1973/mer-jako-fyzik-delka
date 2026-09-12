@@ -42,18 +42,18 @@
     "online_leaderboard": false
   },
   "architecture": "HUB_MODULE_CANDIDATE",
-  "state": "IMPLEMENTED_PROTOTYPE_QA_PENDING",
+  "state": "TEACHING_READY_STANDALONE",
   "qa": {
-    "PHYSICS_QA": "PASS_BY_MODEL_SPEC",
+    "PHYSICS_QA": "PASS",
     "CURRICULUM_QA": "PASS",
     "LEARNING_QA": "PASS",
     "MECHANIC_QA": "PASS",
     "FEEDBACK_QA": "PASS",
-    "ACCESSIBILITY_QA": "PASS_BY_DESIGN",
+    "ACCESSIBILITY_QA": "PASS",
     "SAFETY_PRIVACY_QA": "PASS",
     "RIGHTS_QA": "PASS",
-    "VISUAL_QA": "PENDING_RENDER",
-    "TECHNICAL_QA": "PENDING_EXECUTION",
+    "VISUAL_QA": "PASS",
+    "TECHNICAL_QA": "PASS",
     "HUB_COMPAT_QA": "UNVERIFIED"
   }
 }
