@@ -32,8 +32,7 @@
       const button = document.createElement('button');
       button.type = 'button';
       button.className = 'reason-option';
-      button.setAttribute('role', 'radio');
-      button.setAttribute('aria-checked', String(reason.code === selectedReasonCode));
+      button.setAttribute('aria-pressed', String(reason.code === selectedReasonCode));
       button.textContent = reason.text;
       button.addEventListener('click', () => {
         selectedReasonCode = reason.code;
@@ -105,11 +104,7 @@
     taskIndex += 1;
     if (taskIndex >= 3) {
       const mastery = firstTryCorrect >= 2;
-      setFeedback(
-        mastery ? 'ok' : '',
-        mastery ? 'Průběžně zvládnuto.' : 'Ještě potrénuj opakovaná měření.',
-        mastery ? 'Aspoň 2 ze 3 úloh jsi zvládl napoprvé bez nápovědy.' : 'V nové sérii vždy použij všechna tři měření a vysvětli smysl průměru.',
-      );
+      setFeedback(mastery ? 'ok' : '', mastery ? 'Průběžně zvládnuto.' : 'Ještě potrénuj opakovaná měření.', mastery ? 'Aspoň 2 ze 3 úloh jsi zvládl napoprvé bez nápovědy.' : 'V nové sérii vždy použij všechna tři měření a vysvětli smysl průměru.');
       nextButton.disabled = true;
       return;
     }
