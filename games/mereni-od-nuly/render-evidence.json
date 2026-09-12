@@ -1,0 +1,46 @@
+{
+  "visual_id": "FY06-HRA01-M3-ZERO-ALIGN",
+  "visual_revision": "2.0",
+  "spec_pass": "PASS",
+  "reference_pass": "PASS",
+  "physics_pass": "PASS",
+  "render_pass": "PASS",
+  "didactic_pass": "PASS",
+  "text_visual_sync": "PASS",
+  "teaching_ready": "YES",
+  "reference_evidence": {
+    "tool": "independent_analytic_sweep",
+    "independent_from_production": true,
+    "verified": true,
+    "result": "PASS",
+    "states_checked": [
+      "1806 combinations objectStartMm 35-55 and lengthMm 35-120",
+      "correct placement",
+      "zero error",
+      "gap error"
+    ],
+    "invariants_checked": [
+      "objectEnd-objectStart=length",
+      "rulerZero=objectStart",
+      "rulerTop=objectBottom+1.5mm",
+      "safe frame bounds"
+    ],
+    "notes": "Nezávislá reference nepoužila produkční render helpery; výsledky byly doloženy v QA před pixel auditem."
+  },
+  "evidence": [
+    {"id":"desktop-student-default","device":"desktop","mode":"student","state":"seed60103-default","captured":true,"inspected":true,"result":"PASS","issues":[]},
+    {"id":"mobile-student-default","device":"mobile","mode":"student","state":"seed60103-default-390x844","captured":true,"inspected":true,"result":"PASS","issues":[]},
+    {"id":"board-default","device":"board","mode":"board","state":"seed60103-default-1920x1080","captured":true,"inspected":true,"result":"PASS","issues":[]},
+    {"id":"desktop-help","device":"desktop","mode":"student","state":"help-guides-visible","captured":true,"inspected":true,"result":"PASS","issues":[]},
+    {"id":"desktop-correct-placement","device":"desktop","mode":"student","state":"correct-zero-and-gap","captured":true,"inspected":true,"result":"PASS","issues":[]}
+  ],
+  "didactic_evidence": {
+    "inspected": true,
+    "result": "PASS",
+    "student_inference": "Žák z obrazu rozliší začátek předmětu, nulovou značku a horní hranu pravítka; v nápovědě vodicí čáry jednoznačně ukazují oba požadované vztahy a ve správném stavu nula i hrana geometricky sedí.",
+    "issues": []
+  },
+  "open_blocking_failure_modes": [],
+  "regression_tests_added": [],
+  "notes": "Pixel audit 2026-09-12: desktop 1440x900, mobile 390x844, board 1920x1080, help state a correct-placement state byly skutečně otevřeny. Mobile document width 390 px; měřicí scéna scrolluje uvnitř vlastního rámu."
+}
